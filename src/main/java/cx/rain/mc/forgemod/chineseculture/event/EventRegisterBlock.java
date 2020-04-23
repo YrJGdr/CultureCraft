@@ -4,6 +4,7 @@ import cx.rain.mc.forgemod.chineseculture.utility.SubClassHelper;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
@@ -47,7 +48,7 @@ public class EventRegisterBlock {
     public static void registerItem(RegistryEvent.Register<Item> event) {
         ChineseCulture.INSTANCE.getLogger().info("Registering ItemBlocks.");
         for (Block b : BLOCKS) {
-            event.getRegistry().register(new ItemBlock(b));
+            event.getRegistry().register(new ItemBlock(b).setRegistryName(b.getRegistryName()));
         }
     }
 }
