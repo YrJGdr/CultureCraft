@@ -2,8 +2,8 @@ package cx.rain.mc.forgemod.chineseculture;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.Instance;
-
-import java.util.logging.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Mod(
         modid = ChineseCulture.MODID,
@@ -21,5 +21,9 @@ public class ChineseCulture {
     @Instance(value = ChineseCulture.MODID, owner = ChineseCulture.MODID)
     public static ChineseCulture INSTANCE;
 
-    private Logger logger;
+    private Logger logger = LogManager.getLogger(ChineseCulture.NAME);
+
+    public Logger getLogger() {
+        return logger;
+    }
 }
