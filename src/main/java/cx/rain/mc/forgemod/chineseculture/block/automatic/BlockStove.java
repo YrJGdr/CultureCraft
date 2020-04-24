@@ -4,9 +4,10 @@ import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
-public class TestBlock extends Block {
-    public TestBlock() {
+public class BlockStove extends Block {
+    public BlockStove() {
         super(Material.GROUND);
-        setRegistryName(ChineseCulture.MODID, "placeholder_block");
+        setUnlocalizedName("stove");
+        setRegistryName(ChineseCulture.MODID, "stove");
     }
 }
