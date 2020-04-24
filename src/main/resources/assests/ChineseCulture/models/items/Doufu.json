@@ -1,7 +1,7 @@
 {
   "parent": "builtin/generated",
   "textures": {
-    "layer0": "chineseculture:items/dumpling"
+    "layer0": "chineseculture:items/doufu"
   },
   "display": {
     "thirdperson": {
