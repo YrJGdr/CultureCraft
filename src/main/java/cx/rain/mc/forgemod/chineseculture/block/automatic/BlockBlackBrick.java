@@ -5,13 +5,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class BlockStove extends Block {
-    public BlockStove() {
+public class BlockBlackBrick extends Block {
+    public BlockBlackBrick() {
         super(Material.GROUND);
-        setUnlocalizedName("stove");
-        setRegistryName(ChineseCulture.MODID, "stove");
-        this.setHardness(5F);
-        this.setLightLevel(1.0F);
-        this.setCreativeTab(CreativeTabs.DECORATIONS);
+        setUnlocalizedName("black_brick");
+        setRegistryName(ChineseCulture.MODID, "black_brick");
+        this.setHardness(1.5F);
+        this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 }

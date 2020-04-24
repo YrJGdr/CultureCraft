@@ -5,13 +5,12 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 
-public class BlockStove extends Block {
-    public BlockStove() {
+public class BlockGrayTiles extends Block {
+    public BlockGrayTiles() {
         super(Material.GROUND);
-        setUnlocalizedName("stove");
-        setRegistryName(ChineseCulture.MODID, "stove");
-        this.setHardness(5F);
-        this.setLightLevel(1.0F);
-        this.setCreativeTab(CreativeTabs.DECORATIONS);
+        setUnlocalizedName("gray_tiles");
+        setRegistryName(ChineseCulture.MODID, "gray_tiles");
+        this.setHardness(1.5F);
+        this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 }
