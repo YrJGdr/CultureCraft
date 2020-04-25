@@ -19,9 +19,10 @@ public class ItemLiquor extends ItemFood {
     }
     @Override
     protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player) {
-
-           player.addPotionEffect(new PotionEffect(MobEffects.SPEED, 1200, 2 ));
            player.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 500, 2 ));
+           player.addPotionEffect(new PotionEffect(MobEffects.INSTANT_HEALTH, 2 ));
+           player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 500, 2 ));
+           player.addPotionEffect(new PotionEffect(MobEffects.POISON, 1000, 1 ));
            super.onFoodEaten(stack, world, player);
     }
 }
