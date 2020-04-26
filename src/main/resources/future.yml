@@ -1,0 +1,29 @@
+新增:
+  多方块结构:
+    砖窑: false
+    水井: false
+    炉灶: false
+    造纸: false
+    酒窖: false
+    茶厂: false
+  食物:
+    煮鸡蛋: false
+    茶叶蛋: false
+    豆腐: true
+    豆浆: false
+    豆腐乳: false
+  饮料:
+    茶: false
+    白酒: true
+    高粱酒: false
+  作物:
+    南瓜: true
+    稻米: false
+    桃子: false
+    茶叶: false
+    大豆: false
+    高粱: false
+  工艺:
+    书法: false
+    音乐: false
+  其他:     
