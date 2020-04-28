@@ -6,7 +6,7 @@ import net.minecraft.item.ItemFood;
 
 public class ItemTofu extends ItemFood {
     public ItemTofu() {
-        super(8, 0.3F, false);
+        super(2, 0.3F, false);
         this.setUnlocalizedName(ChineseCulture.MODID+":tofu");
         this.setRegistryName(ChineseCulture.MODID, "tofu");
         this.setCreativeTab(CreativeTabs.FOOD);
