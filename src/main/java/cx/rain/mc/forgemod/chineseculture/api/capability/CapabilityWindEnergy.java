@@ -57,7 +57,7 @@ public class CapabilityWindEnergy {
             }
 
             @Override
-            public void reset() {
+            public void resetWindEnergy() {
                 this.WindEnergy=0;
             }
 

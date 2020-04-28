@@ -58,7 +58,7 @@ public class CapabilityMEnergy {
             }
 
             @Override
-            public void reset() {
+            public void resetMEnergy() {
                 this.MEnergy=0;
             }
 

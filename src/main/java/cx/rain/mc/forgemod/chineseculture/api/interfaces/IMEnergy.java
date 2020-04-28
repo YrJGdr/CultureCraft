@@ -26,7 +26,7 @@ public interface IMEnergy {
      * 重置机器的机械能
      * @author flysong
      */
-    void reset();
+    void resetMEnergy();
 
     /**
      * 增加机器的机械能

@@ -57,7 +57,7 @@ public class CapabilityThermal {
             }
 
             @Override
-            public void reset() {
+            public void resetThermal() {
                 this.Thermal=0;
             }
 

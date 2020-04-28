@@ -24,7 +24,7 @@ public interface IThermal {
      * 重置机器的热力
      * @author flysong
      */
-    void reset();
+    void resetThermal();
 
     /**
      * 增加机器的热力

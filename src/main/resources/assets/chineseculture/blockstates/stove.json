@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "burning=false,facing=east,": { "model": "chineseculture:unburn_stove", "y": 90, "uvlock": true },
+    "burning=true,facing=east": { "model": "chineseculture:burn_stove", "y": 90, "uvlock": true },
+    "burning=false,facing=north": { "model": "chineseculture:unburn_stove" },
+    "burning=true,facing=north": { "model": "chineseculture:burn_stove" },
+    "burning=false,facing=south": { "model": "chineseculture:unburn_stove", "y": 180, "uvlock": true },
+    "burning=true,facing=south": { "model": "chineseculture:burn_stove", "y": 180, "uvlock": true },
+    "burning=false,facing=west": { "model": "chineseculture:unburn_stove", "y": 270, "uvlock": true },
+    "burning=true,facing=west": { "model": "chineseculture:burn_stove", "y": 270, "uvlock": true }
+  }
+}

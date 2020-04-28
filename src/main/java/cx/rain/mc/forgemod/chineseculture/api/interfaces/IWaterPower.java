@@ -24,7 +24,7 @@ public interface IWaterPower {
      * 重置机器的水能
      * @author flysong
      */
-    void reset();
+    void resetWaterPower();
 
     /**
      * 增加机器的水能

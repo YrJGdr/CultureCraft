@@ -24,7 +24,7 @@ public interface IWindEnergy {
      * 重置机器的风能
      * @author flysong
      */
-    void reset();
+    void resetWindEnergy();
 
     /**
      * 增加机器的风能

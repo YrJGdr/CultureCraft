@@ -57,7 +57,7 @@ public class CapabilityWaterPower {
             }
 
             @Override
-            public void reset() {
+            public void resetWaterPower() {
                 this.WaterPower=0;
             }
 
