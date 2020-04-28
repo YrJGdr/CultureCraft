@@ -1,3 +1,12 @@
 item.chineseculture:tofu.name=Tofu
 item.chineseculture:dumpling.name=Dumpling
 item.chineseculture:spirits.name=Spirits
+
+tile.chineseculture:black_brick.name=Black Brick
+tile.chineseculture:gray_tiles.name=Gray Tiles
+tile.chineseculture:coloured_glaze.name=Coloured Glaze
+tile.chineseculture:mahogany.name=Mahogany
+tile.chineseculture:marble.name=Marble
+tile.chineseculture:porcelain.name=Porcelain
+tile.chineseculture:stove.name=Stove
+tile.chineseculture:tile.name=Tile
