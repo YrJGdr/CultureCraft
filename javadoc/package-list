@@ -1,3 +1,7 @@
 cx.rain.mc.forgemod.chineseculture.api.capability
 cx.rain.mc.forgemod.chineseculture.api.interfaces
-cx.rain.mc.forgemod.chineseculture.api.math
+cx.rain.mc.forgemod.chineseculture.api.math.vec.Double
+cx.rain.mc.forgemod.chineseculture.api.math.vec.Float
+cx.rain.mc.forgemod.chineseculture.api.math.vec.Integer
+cx.rain.mc.forgemod.chineseculture.api.math.vec.Long
+cx.rain.mc.forgemod.chineseculture.api.math.vec.string
