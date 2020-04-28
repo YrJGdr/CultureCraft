@@ -5,4 +5,37 @@ package cx.rain.mc.forgemod.chineseculture.api.interfaces;
  * @author flysong
  */
 public interface IWindEnergy {
+    /**
+     * 获得机器的风能
+     * @return 风能
+     * @author flysong
+     */
+    int getWindEnergy();
+
+    /**
+     * 设置机器的风能
+     * @param WindEnergy 风能
+     * @author flysong
+     */
+    void setWindEnergy(int WindEnergy);
+
+    /**
+     * 重置机器的风能
+     * @author flysong
+     */
+    void reset();
+
+    /**
+     * 增加机器的风能
+     * @param WindEnergy 风能
+     * @author flysong
+     */
+    void addWindEnergy(int WindEnergy);
+
+    /**
+     * 减少机器的风能
+     * @param WindEnergy 风能
+     * @author flysong
+     */
+    void subWindEnergy(int WindEnergy);
 }

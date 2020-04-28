@@ -26,8 +26,22 @@ public interface IMachine {
      */
     enum MachineState
     {
-        CLOSE("Close"), IDLE("IDLE"), WORKING("Working"), OVERLOAD("Overload"), DAMAGED("Damaged");
+        /**关闭*/
+        CLOSE("Close"),
+        /**空闲*/
+        IDLE("IDLE"),
+        /**工作*/
+        WORKING("Working"),
+        /**过载*/
+        OVERLOAD("Overload"),
+        /**损坏*/
+        DAMAGED("Damaged");
         private String name;
+
+        /**
+         * 获得该枚举常量的名字
+         * @return 该枚举常量的名字
+         */
         public String getName(){
             return name;
         }

@@ -39,5 +39,5 @@ public interface IMEnergy {
      * @param MEnergy 机械能
      * @author flysong
      */
-    void subEnergy(int MEnergy);
+    void subMEnergy(int MEnergy);
 }

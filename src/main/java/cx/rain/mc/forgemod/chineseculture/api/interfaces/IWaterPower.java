@@ -5,4 +5,37 @@ package cx.rain.mc.forgemod.chineseculture.api.interfaces;
  * @author flysong
  */
 public interface IWaterPower {
+    /**
+     * 获得机器的水能
+     * @return 水能
+     * @author flysong
+     */
+    int getWaterPower();
+
+    /**
+     * 设置机器的水能
+     * @param WaterPower 水能
+     * @author flysong
+     */
+    void setWaterPower(int WaterPower);
+
+    /**
+     * 重置机器的水能
+     * @author flysong
+     */
+    void reset();
+
+    /**
+     * 增加机器的水能
+     * @param WaterPower 水能
+     * @author flysong
+     */
+    void addWaterPower(int WaterPower);
+
+    /**
+     * 减少机器的水能
+     * @param WaterPower 水能
+     * @author flysong
+     */
+    void subWaterPower(int WaterPower);
 }

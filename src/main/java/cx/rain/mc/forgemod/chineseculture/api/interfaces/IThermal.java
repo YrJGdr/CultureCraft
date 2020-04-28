@@ -5,4 +5,37 @@ package cx.rain.mc.forgemod.chineseculture.api.interfaces;
  * @author flysong
  */
 public interface IThermal {
+    /**
+     * 获得机器的热力
+     * @return 热力
+     * @author flysong
+     */
+    int getThermal();
+
+    /**
+     * 设置机器的热力
+     * @param Thermal 热力
+     * @author flysong
+     */
+    void setThermal(int Thermal);
+
+    /**
+     * 重置机器的热力
+     * @author flysong
+     */
+    void reset();
+
+    /**
+     * 增加机器的热力
+     * @param Thermal 热力
+     * @author flysong
+     */
+    void addThermal(int Thermal);
+
+    /**
+     * 减少机器的热力
+     * @param Thermal 热力
+     * @author flysong
+     */
+    void subThermal(int Thermal);
 }
