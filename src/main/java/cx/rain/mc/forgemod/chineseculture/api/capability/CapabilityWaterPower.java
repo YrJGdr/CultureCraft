@@ -9,11 +9,11 @@ import net.minecraftforge.common.capabilities.Capability;
 import java.util.concurrent.Callable;
 
 /**
- * WaterPower的Capability
+ * WaterPower接口的Capability
  */
 public class CapabilityWaterPower {
     /**
-     * WaterPower的序列化类
+     * WaterPower接口的序列化类
      */
     public static class Storage implements Capability.IStorage<IWaterPower>
     {
@@ -31,7 +31,7 @@ public class CapabilityWaterPower {
     }
 
     /**
-     * WaterPower的工厂方法
+     * WaterPower接口的工厂方法
      */
     public static class Factory implements Callable<IWaterPower> {
 
@@ -41,7 +41,7 @@ public class CapabilityWaterPower {
         }
 
         /**
-         * WaterPower的默认实现类
+         * WaterPower接口的默认实现类
          */
         private class Implementation implements IWaterPower{
             private int WaterPower;

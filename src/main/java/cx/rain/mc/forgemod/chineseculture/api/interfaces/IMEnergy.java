@@ -3,6 +3,7 @@ package cx.rain.mc.forgemod.chineseculture.api.interfaces;
 /**
  * 所有所有能够利用机械能的机器的TileEntity都要实现这个接口
  * MEnergy:MechanicalEnergy
+ * I:Interface
  * @author flysong
  */
 public interface IMEnergy {

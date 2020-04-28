@@ -9,12 +9,12 @@ import net.minecraftforge.common.capabilities.Capability;
 import java.util.concurrent.Callable;
 
 /**
- * MEnergy的Capability
+ * MEnergy接口的Capability
  */
 public class CapabilityMEnergy {
 
     /**
-     * MEnergy的序列化类
+     * MEnergy接口的序列化类
      */
     public static class Storage implements Capability.IStorage<IMEnergy>
     {
@@ -32,7 +32,7 @@ public class CapabilityMEnergy {
     }
 
     /**
-     * MEnergy的工厂方法
+     * MEnergy接口的工厂方法
      */
     public static class Factory implements Callable<IMEnergy> {
 
@@ -42,7 +42,7 @@ public class CapabilityMEnergy {
         }
 
         /**
-         * MEnergy的默认实现类
+         * MEnergy的接口默认实现类
          */
         private class Implementation implements IMEnergy{
             private int MEnergy;

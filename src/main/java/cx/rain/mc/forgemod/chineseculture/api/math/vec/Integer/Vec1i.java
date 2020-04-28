@@ -1,7 +1,9 @@
-package cx.rain.mc.forgemod.chineseculture.api.math;
+package cx.rain.mc.forgemod.chineseculture.api.math.vec.Integer;
 
 /**
  * Vec1i = Vector 1 int 1维向量(int)
+ * Vec: Vector
+ * i : int
  * @author flysong
  */
 public class Vec1i {

@@ -9,11 +9,11 @@ import net.minecraftforge.common.capabilities.Capability;
 import java.util.concurrent.Callable;
 
 /**
- * WindEnergy的Capability
+ * WindEnergy接口的Capability
  */
 public class CapabilityWindEnergy {
     /**
-     * WindEnergy的序列化类
+     * WindEnergy接口的序列化类
      */
     public static class Storage implements Capability.IStorage<IWindEnergy>
     {
@@ -31,7 +31,7 @@ public class CapabilityWindEnergy {
     }
 
     /**
-     * WindEnergy的工厂方法
+     * WindEnergy接口的工厂方法
      */
     public static class Factory implements Callable<IWindEnergy> {
 
@@ -41,7 +41,7 @@ public class CapabilityWindEnergy {
         }
 
         /**
-         * WindEnergy的默认实现类
+         * WindEnergy接口的默认实现类
          */
         private class Implementation implements IWindEnergy{
             private int WindEnergy;

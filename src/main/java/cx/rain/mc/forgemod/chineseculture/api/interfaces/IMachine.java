@@ -2,6 +2,7 @@ package cx.rain.mc.forgemod.chineseculture.api.interfaces;
 
 /**
  * 所有机器的TileEntity都必须实现这个接口
+ * I:Interface
  * @author flysong
  */
 public interface IMachine {

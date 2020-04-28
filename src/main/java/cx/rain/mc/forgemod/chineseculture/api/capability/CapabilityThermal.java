@@ -41,7 +41,7 @@ public class CapabilityThermal {
         }
 
         /**
-         * Thermal的默认实现类
+         * Thermal接口的默认实现类
          */
         private class Implementation implements IThermal{
             private int Thermal;
