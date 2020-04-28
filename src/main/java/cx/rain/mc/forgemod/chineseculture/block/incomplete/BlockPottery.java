@@ -1,4 +1,4 @@
-package cx.rain.mc.forgemod.chineseculture.block.automatic;
+package cx.rain.mc.forgemod.chineseculture.block.incomplete;
 
 import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
 import net.minecraft.block.Block;

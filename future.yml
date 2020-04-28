@@ -1,8 +1,9 @@
-新增:
+﻿新增:
   多方块结构:
-    砖窑: false
+    机械:
+      炉灶: false
+      砖窑: false
     水井: false
-    炉灶: false
     造纸: false
     酒窖: false
     茶厂: false
@@ -12,6 +13,13 @@
     豆腐: true
     豆浆: false
     豆腐乳: false
+    半成品:
+      面: false
+      面粉: false
+      油: false
+      盐: false
+      酱油: false
+      料酒: false
   饮料:
     茶: false
     白酒: true
@@ -26,4 +34,9 @@
   工艺:
     书法: false
     音乐: false
-  其他:     
+  其他:
+    能量系统:
+      风能: true
+      热能: true
+      机械能: true
+      水能: true
