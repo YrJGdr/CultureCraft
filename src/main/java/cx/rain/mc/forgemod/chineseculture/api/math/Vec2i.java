@@ -2,6 +2,7 @@ package cx.rain.mc.forgemod.chineseculture.api.math;
 
 /**
  * Vec2i = Vector 2 int 2维向量(int)
+ * @author flysong
  */
 public class Vec2i {
     public int x;
