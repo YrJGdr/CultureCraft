@@ -8,8 +8,8 @@ import net.minecraft.creativetab.CreativeTabs;
 public class BlockMarble extends Block {
     public BlockMarble() {
         super(Material.GROUND);
-        setUnlocalizedName("marble");
-        setRegistryName(ChineseCulture.MODID, "marble");
+        this.setUnlocalizedName(ChineseCulture.MODID+":marble");
+        this.setRegistryName(ChineseCulture.MODID, "marble");
         this.setHardness(2F);
         this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }

@@ -4,11 +4,11 @@ import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemFood;
 
-public class ItemDoufu extends ItemFood {
-    public ItemDoufu() {
+public class ItemTofu extends ItemFood {
+    public ItemTofu() {
         super(8, 0.3F, false);
-        setUnlocalizedName("doufu");
-        setRegistryName(ChineseCulture.MODID, "doufu");
+        this.setUnlocalizedName(ChineseCulture.MODID+":tofu");
+        this.setRegistryName(ChineseCulture.MODID, "tofu");
         this.setCreativeTab(CreativeTabs.FOOD);
     }
 }

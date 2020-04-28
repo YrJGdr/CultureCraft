@@ -7,8 +7,8 @@ import net.minecraft.item.ItemFood;
 public class ItemDumpling extends ItemFood {
     public ItemDumpling() {
         super(8, 0.8F, false);
-        setUnlocalizedName("dumpling");
-        setRegistryName(ChineseCulture.MODID, "dumpling");
+        this.setUnlocalizedName(ChineseCulture.MODID+":dumpling");
+        this.setRegistryName(ChineseCulture.MODID, "dumpling");
         this.setCreativeTab(CreativeTabs.FOOD);
     }
 }

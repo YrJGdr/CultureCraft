@@ -1,7 +1,7 @@
 package cx.rain.mc.forgemod.chineseculture.event;
 
 import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
-import cx.rain.mc.forgemod.chineseculture.utility.SubClassHelper;
+import cx.rain.mc.forgemod.chineseculture.util.SubClassHelper;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;

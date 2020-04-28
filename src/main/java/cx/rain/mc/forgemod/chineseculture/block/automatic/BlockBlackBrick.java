@@ -8,8 +8,8 @@ import net.minecraft.creativetab.CreativeTabs;
 public class BlockBlackBrick extends Block {
     public BlockBlackBrick() {
         super(Material.GROUND);
-        setUnlocalizedName("black_brick");
-        setRegistryName(ChineseCulture.MODID, "black_brick");
+        this.setUnlocalizedName(ChineseCulture.MODID+":black_brick");
+        this.setRegistryName(ChineseCulture.MODID, "black_brick");
         this.setHardness(1.5F);
         this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }

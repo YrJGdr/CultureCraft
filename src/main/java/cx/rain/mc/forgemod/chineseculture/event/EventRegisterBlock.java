@@ -1,6 +1,6 @@
 package cx.rain.mc.forgemod.chineseculture.event;
 
-import cx.rain.mc.forgemod.chineseculture.utility.SubClassHelper;
+import cx.rain.mc.forgemod.chineseculture.util.SubClassHelper;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;

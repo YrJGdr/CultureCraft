@@ -8,8 +8,8 @@ import net.minecraft.creativetab.CreativeTabs;
 public class BlockMahogany extends Block {
     public BlockMahogany() {
         super(Material.GROUND);
-        setUnlocalizedName("mahogany");
-        setRegistryName(ChineseCulture.MODID, "mahogany");
+        this.setUnlocalizedName(ChineseCulture.MODID+":mahogany");
+        this.setRegistryName(ChineseCulture.MODID, "mahogany");
         this.setHardness(1.5F);
         this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }

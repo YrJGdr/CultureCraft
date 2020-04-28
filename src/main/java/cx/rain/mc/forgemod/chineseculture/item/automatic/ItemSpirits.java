@@ -9,11 +9,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class ItemLiquor extends ItemFood {
-    public ItemLiquor() {
+public class ItemSpirits extends ItemFood {
+    public ItemSpirits() {
         super(4, 0.3F, false);
-        setUnlocalizedName("liquor");
-        setRegistryName(ChineseCulture.MODID, "liquor");
+        this.setUnlocalizedName(ChineseCulture.MODID+":spirits");
+        this.setRegistryName(ChineseCulture.MODID, "spirits");
         this.setAlwaysEdible();
         this.setCreativeTab(CreativeTabs.FOOD);
     }

@@ -8,8 +8,8 @@ import net.minecraft.creativetab.CreativeTabs;
 public class BlockColouredGlaze extends Block {
     public BlockColouredGlaze() {
         super(Material.GROUND);
-        setUnlocalizedName("coloured_glaze");
-        setRegistryName(ChineseCulture.MODID, "coloured_glaze");
+        this.setUnlocalizedName(ChineseCulture.MODID+":coloured_glaze");
+        this.setRegistryName(ChineseCulture.MODID, "coloured_glaze");
         this.setHardness(2F);
         this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }

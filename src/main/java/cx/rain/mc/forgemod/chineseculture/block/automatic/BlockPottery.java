@@ -8,8 +8,8 @@ import net.minecraft.creativetab.CreativeTabs;
 public class BlockPottery extends Block {
     public BlockPottery() {
         super(Material.GROUND);
-        setUnlocalizedName("pottery");
-        setRegistryName(ChineseCulture.MODID, "pottery");
+        this.setUnlocalizedName(ChineseCulture.MODID+":pottery");
+        this.setRegistryName(ChineseCulture.MODID, "pottery");
         this.setHardness(0.5F);
         this.setCreativeTab(CreativeTabs.DECORATIONS);
     }
