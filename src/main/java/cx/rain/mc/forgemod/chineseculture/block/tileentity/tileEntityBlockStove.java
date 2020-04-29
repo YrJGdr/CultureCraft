@@ -36,7 +36,7 @@ public class tileEntityBlockStove extends TileEntity implements IThermal, ITicka
 
     @Override
     public void update() {
-
+        //TODO
     }
 
     public tileEntityBlockStove(){
