@@ -9,7 +9,16 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class RegistryCapability {
     @CapabilityInject(IMEnergy.class)
-    public static Capability<IMEnergy> positionHistory;
+    public static Capability<IMEnergy> MEnergyCapability;
+
+    @CapabilityInject(IThermal.class)
+    public static Capability<IThermal> ThermalCapability;
+
+    @CapabilityInject(IWaterPower.class)
+    public static Capability<IWaterPower> WaterPowerCapability;
+
+    @CapabilityInject(IWindEnergy.class)
+    public static Capability<IWindEnergy> WindEnergyCapability;
 
     public RegistryCapability(FMLPreInitializationEvent event)
     {

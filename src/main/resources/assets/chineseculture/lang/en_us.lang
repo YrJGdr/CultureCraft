@@ -12,3 +12,5 @@ tile.chineseculture:pottery.name=Pottery
 tile.chineseculture:porcelain.name=Porcelain
 tile.chineseculture:stove.name=Stove
 tile.chineseculture:tiles.name=Tiles
+
+itemGroup.chineseculture:Machine=Chinese Culture:Machine

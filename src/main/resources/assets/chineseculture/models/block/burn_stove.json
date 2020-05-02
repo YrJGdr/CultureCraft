@@ -1,8 +1,0 @@
-{
-  "parent": "block/orientable",
-  "textures": {
-    "top": "chineseculture:blocks/burn_stove_top",
-    "front": "chineseculture:blocks/burn_stove_front",
-    "side": "chineseculture:blocks/black_brick"
-  }
-}
