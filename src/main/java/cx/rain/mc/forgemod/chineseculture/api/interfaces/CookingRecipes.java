@@ -1,8 +1,9 @@
 package cx.rain.mc.forgemod.chineseculture.api.interfaces;
 
+import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
 import cx.rain.mc.forgemod.chineseculture.block.automatic.BlockStove;
-import cx.rain.mc.forgemod.chineseculture.item.automatic.ItemCharredFood;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.NonNullList;
@@ -75,7 +76,7 @@ public class CookingRecipes extends IForgeRegistryEntry.Impl<ICooking> implement
         if(te instanceof IThermal) {
             int t = ((IThermal) te).getThermal();
             if(t>maxThermal){
-                return new ItemStack(new ItemCharredFood(),1);
+                return new ItemStack(Item.getByNameOrId(ChineseCulture.MODID+":charred_food"),1);
             }
             else{
                 return recipeResult;

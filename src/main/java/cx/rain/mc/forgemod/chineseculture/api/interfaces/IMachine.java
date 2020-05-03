@@ -1,5 +1,7 @@
 package cx.rain.mc.forgemod.chineseculture.api.interfaces;
 
+import net.minecraft.util.IStringSerializable;
+
 /**
  * 所有机器的TileEntity都必须实现这个接口
  * I:Interface
@@ -25,24 +27,24 @@ public interface IMachine {
      * 所有的机器都必须处于5种状态其一
      * @author flysong
      */
-    enum MachineState
-    {
+    enum MachineState implements IStringSerializable {
         /**关闭*/
-        CLOSE("Close"),
+        CLOSE("close"),
         /**空闲*/
-        IDLE("IDLE"),
+        IDLE("idle"),
         /**工作*/
-        WORKING("Working"),
+        WORKING("working"),
         /**过载*/
-        OVERLOAD("Overload"),
+        OVERLOAD("overload"),
         /**损坏*/
-        DAMAGED("Damaged");
+        DAMAGED("damaged");
         private String name;
 
         /**
          * 获得该枚举常量的名字
          * @return 该枚举常量的名字
          */
+        @Override
         public String getName(){
             return name;
         }
