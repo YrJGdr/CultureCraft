@@ -20,9 +20,7 @@ public class EventRegisterItems {
         for (Class<? extends Item> clazz :
                 SubClassHelper.getItems("cx.rain.mc.forgemod.chineseculture.item.automatic")) {
             try {
-                Constructor<? extends Item> c = clazz.getConstructor();
-                Item i = c.newInstance();
-                ITEMS.add(i);
+                ITEMS.add(clazz.getConstructor().newInstance());
             } catch (NoSuchMethodException
                     | IllegalAccessException
                     | InstantiationException

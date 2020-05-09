@@ -1,6 +1,7 @@
 item.chineseculture:dumpling.name=饺子
 item.chineseculture:spirits.name=白酒
 item.chineseculture:tofu.name=豆腐
+item.chineseculture:charredFood.name=烧焦的食物
 
 tile.chineseculture:blackBrick.name=黑砖块
 tile.chineseculture:colouredGlaze.name=釉
@@ -11,3 +12,5 @@ tile.chineseculture:pottery.name=陶器
 tile.chineseculture:porcelain.name=瓷器
 tile.chineseculture:stove.name=炉灶
 tile.chineseculture:tiles.name=瓦片
+
+itemGroup.chineseculture:Machine=华夏文明:机器

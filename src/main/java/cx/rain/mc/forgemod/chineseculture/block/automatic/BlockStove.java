@@ -1,71 +1,90 @@
 package cx.rain.mc.forgemod.chineseculture.block.automatic;
 
 import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
+import cx.rain.mc.forgemod.chineseculture.api.interfaces.IMachine;
+import cx.rain.mc.forgemod.chineseculture.api.interfaces.IThermal;
+import cx.rain.mc.forgemod.chineseculture.block.api.BlockMachine;
+import cx.rain.mc.forgemod.chineseculture.block.tileentity.tileEntityBlockStove;
+import cx.rain.mc.forgemod.chineseculture.init.RegistryCapability;
+import cx.rain.mc.forgemod.chineseculture.init.RegistryCreativeTab;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
+import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockStove extends Block {
+import javax.annotation.Nullable;
+
+public class BlockStove extends BlockMachine {
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
-    public static final PropertyBool BURNING = PropertyBool.create("burning");
+    public static final PropertyEnum<IMachine.MachineState> STATE = PropertyEnum.create("state",IMachine.MachineState.class);
 
     public BlockStove() {
         super(Material.GROUND);
         this.setUnlocalizedName(ChineseCulture.MODID+":stove");
         this.setRegistryName(ChineseCulture.MODID, "stove");
         this.setHardness(5F);
-        this.setCreativeTab(CreativeTabs.DECORATIONS);
-        this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(BURNING, Boolean.FALSE));
+        this.setHarvestLevel("pickaxe",1);
+        this.setCreativeTab(RegistryCreativeTab.Machine);
     }
 
     @Override
     public BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, FACING, BURNING);
-    }
-
-    @Override
-    public IBlockState getStateFromMeta(int meta)
-    {
-        EnumFacing facing = EnumFacing.getHorizontal(meta & 3);
-        Boolean burning = Boolean.valueOf((meta & 4) != 0);
-        return this.getDefaultState().withProperty(FACING, facing).withProperty(BURNING, burning);
-    }
-
-    @Override
-    public int getMetaFromState(IBlockState state)
-    {
-        int facing = state.getValue(FACING).getHorizontalIndex();
-        int burning = state.getValue(BURNING).booleanValue() ? 4 : 0;
-        return facing | burning;
+        return new BlockStateContainer(this, FACING, STATE);
     }
 
     @Override
     public int getLightValue(IBlockState state, IBlockAccess world, BlockPos pos) {
-        return state.getValue(BURNING).booleanValue() ? 15 : 0;
+        switch (state.getValue(STATE)){
+            case OVERLOAD:
+                return 15;
+            case IDLE:
+                return 12;
+            case WORKING:
+                return 8;
+            case CLOSE:
+            case DAMAGED:
+            default:
+                return 0;
+        }
     }
 
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if(!worldIn.isRemote){
-            worldIn.setBlockState(pos, state.cycleProperty(BURNING));
+            TileEntity te = worldIn.getTileEntity(pos);
+            if(te.hasCapability(RegistryCapability.ThermalCapability,facing)){
+                te.getCapability(RegistryCapability.ThermalCapability,facing).addThermal(100);
+            }
+            worldIn.setTileEntity(pos,te);
         }
-        return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
+        return true;
+    }
+
+    @Nullable
+    @Override
+    public TileEntity createTileEntity(World world, IBlockState state) {
+        return new tileEntityBlockStove();
     }
 
     @Override
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
-        state.withProperty(FACING, placer.getHorizontalFacing().getOpposite());
+    public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
+        TileEntity te = worldIn.getTileEntity(pos);
+        if(te instanceof IMachine){
+            state.withProperty(STATE,((IMachine) te).getWorkingState());
+        }
+        return state;
     }
 }

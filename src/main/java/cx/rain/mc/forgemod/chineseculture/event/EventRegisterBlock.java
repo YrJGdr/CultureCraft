@@ -22,9 +22,7 @@ public class EventRegisterBlock {
         for (Class<? extends Block> clazz :
                 SubClassHelper.getBlocks("cx.rain.mc.forgemod.chineseculture.block.automatic")) {
             try {
-                Constructor<? extends Block> c = clazz.getConstructor();
-                Block b = c.newInstance();
-                BLOCKS.add(b);
+                BLOCKS.add(clazz.getConstructor().newInstance());
             } catch (NoSuchMethodException
                     | IllegalAccessException
                     | InstantiationException

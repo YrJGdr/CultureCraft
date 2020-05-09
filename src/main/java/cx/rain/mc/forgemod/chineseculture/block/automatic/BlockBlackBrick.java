@@ -10,6 +10,7 @@ public class BlockBlackBrick extends Block {
         super(Material.GROUND);
         this.setUnlocalizedName(ChineseCulture.MODID+":blackBrick");
         this.setRegistryName(ChineseCulture.MODID, "black_brick");
+        this.setHarvestLevel("pickaxe",1);
         this.setHardness(1.5F);
         this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }

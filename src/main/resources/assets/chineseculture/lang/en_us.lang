@@ -1,6 +1,7 @@
 item.chineseculture:dumpling.name=Dumpling
 item.chineseculture:spirits.name=Spirits
 item.chineseculture:tofu.name=Tofu
+item.chineseculture:charredFood.name=Charred Food
 
 tile.chineseculture:blackBrick.name=Black Brick
 tile.chineseculture:colouredGlaze.name=Coloured Glaze
@@ -11,3 +12,5 @@ tile.chineseculture:pottery.name=Pottery
 tile.chineseculture:porcelain.name=Porcelain
 tile.chineseculture:stove.name=Stove
 tile.chineseculture:tiles.name=Tiles
+
+itemGroup.chineseculture:Machine=Chinese Culture:Machine

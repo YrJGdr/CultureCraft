@@ -1,4 +1,4 @@
-package cx.rain.mc.forgemod.chineseculture.block.incomplete;
+package cx.rain.mc.forgemod.chineseculture.block.automatic;
 
 import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
 import net.minecraft.block.Block;
@@ -11,6 +11,7 @@ public class BlockMarble extends Block {
         this.setUnlocalizedName(ChineseCulture.MODID+":marble");
         this.setRegistryName(ChineseCulture.MODID, "marble");
         this.setHardness(2F);
+        this.setHarvestLevel("pickaxe",1);
         this.setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
     }
 }
