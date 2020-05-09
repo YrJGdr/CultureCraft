@@ -1,10 +1,10 @@
-package cx.rain.mc.forgemod.chineseculture.block.tileentity;
+package cx.rain.mc.forgemod.chineseculture.tileentity;
 
 import cx.rain.mc.forgemod.chineseculture.api.interfaces.IThermal;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
 
-public class tileEntityBlockStove extends TileEntity implements IThermal, ITickable {
+public class TileEntityBlockStove extends TileEntity implements IThermal, ITickable {
     private int Thermal;
 
     @Override

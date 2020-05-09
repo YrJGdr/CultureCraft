@@ -1,20 +1,10 @@
-package cx.rain.mc.forgemod.chineseculture.util;
+package cx.rain.mc.forgemod.chineseculture.utility;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemFood;
 import org.reflections.Reflections;
 import org.reflections.scanners.SubTypesScanner;
-import org.reflections.util.ClasspathHelper;
-import org.reflections.util.ConfigurationBuilder;
-import org.reflections.util.FilterBuilder;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.List;
 import java.util.Set;
 
 public class SubClassHelper {

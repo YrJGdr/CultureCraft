@@ -1,7 +1,6 @@
-package cx.rain.mc.forgemod.chineseculture.util;
+package cx.rain.mc.forgemod.chineseculture.utility;
 
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.DimensionType;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;

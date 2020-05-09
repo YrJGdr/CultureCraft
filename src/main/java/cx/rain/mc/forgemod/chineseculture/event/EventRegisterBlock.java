@@ -1,10 +1,9 @@
-package cx.rain.mc.forgemod.chineseculture.init;
+package cx.rain.mc.forgemod.chineseculture.event;
 
-import cx.rain.mc.forgemod.chineseculture.util.SubClassHelper;
+import cx.rain.mc.forgemod.chineseculture.utility.SubClassHelper;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
@@ -16,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @EventBusSubscriber(modid = ChineseCulture.MODID)
-public class RegisterBlock {
+public class EventRegisterBlock {
     public static List<Block> BLOCKS = new ArrayList<>();
 
     static {

@@ -1,4 +1,4 @@
-package cx.rain.mc.forgemod.chineseculture.init;
+package cx.rain.mc.forgemod.chineseculture.event;
 
 import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
 import net.minecraft.block.Block;
@@ -11,17 +11,17 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 
 @EventBusSubscriber(modid = ChineseCulture.MODID, value = Side.CLIENT)
-public class RegisterModel {
+public class EventRegisterModel {
     @SubscribeEvent
     public static void onRegisterModel(ModelRegistryEvent event) {
         ChineseCulture.INSTANCE.getLogger().info("Registering Item Models.");
-        for (Item i : RegisterItems.ITEMS) {
+        for (Item i : EventRegisterItems.ITEMS) {
             ModelResourceLocation model = new ModelResourceLocation(i.getRegistryName(), "inventory");
             ModelLoader.setCustomModelResourceLocation(i, 0, model);
         }
 
         ChineseCulture.INSTANCE.getLogger().info("Registering Block Models.");
-        for (Block b : RegisterBlock.BLOCKS) {
+        for (Block b : EventRegisterBlock.BLOCKS) {
             ModelResourceLocation model = new ModelResourceLocation(b.getRegistryName(), "inventory");
             ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(b), 0, model);
         }

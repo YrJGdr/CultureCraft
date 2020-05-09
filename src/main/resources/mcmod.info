@@ -7,8 +7,8 @@
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["Infinity_rain"],
-  "credits": "The SaltedFish Club and the Gugugu studio.",
+  "authorList": ["Infinity_rain", "Luo_ShiJian", "theFlySong"],
+  "credits": "The SaltedFish Club, the Gugugu studio, qinglangg and luiqn2007.",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

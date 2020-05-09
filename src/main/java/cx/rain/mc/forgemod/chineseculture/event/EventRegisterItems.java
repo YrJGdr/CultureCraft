@@ -1,7 +1,7 @@
-package cx.rain.mc.forgemod.chineseculture.init;
+package cx.rain.mc.forgemod.chineseculture.event;
 
 import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
-import cx.rain.mc.forgemod.chineseculture.util.SubClassHelper;
+import cx.rain.mc.forgemod.chineseculture.utility.SubClassHelper;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @EventBusSubscriber(modid = ChineseCulture.MODID)
-public class RegisterItems {
+public class EventRegisterItems {
     public static List<Item> ITEMS = new ArrayList<>();
 
     static {
