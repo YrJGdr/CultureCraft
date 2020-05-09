@@ -1,7 +1,7 @@
 package cx.rain.mc.forgemod.chineseculture.init;
 
 import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
-import cx.rain.mc.forgemod.chineseculture.block.tileentity.*;
+import cx.rain.mc.forgemod.chineseculture.tileEntity.TileEntityBlockStove;
 import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
@@ -15,6 +15,6 @@ public class RegistryTileEntity {
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void Registry(RegistryEvent.Register<Block> event){
-        GameRegistry.registerTileEntity(tileEntityBlockStove.class, new ResourceLocation(ChineseCulture.MODID, "stove"));
+        GameRegistry.registerTileEntity(TileEntityBlockStove.class, new ResourceLocation(ChineseCulture.MODID, "stove"));
     }
 }

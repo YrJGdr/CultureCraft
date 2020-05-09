@@ -7,24 +7,17 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+// Todo
 /**
- * ModBlock annotation.
- * For auto register blocks.
- * Use on class extends Block.
+ * For setting creative tabs.
  * @author Infinity_rain
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface ModBlock {
+public @interface Creative {
     /**
-     * Block registry name.
-     * @return RegistryName
+     * Creative Tabs.
+     * @return CreativeTab
      */
-    String name();
-
-    /**
-     * I18n key for block name.
-     * @return TranslateKey
-     */
-    String translate() default "";
+    Class<? extends CreativeTabs>[] Tabs();
 }

@@ -1,4 +1,4 @@
-package cx.rain.mc.forgemod.chineseculture.block.tileentity;
+package cx.rain.mc.forgemod.chineseculture.tileEntity;
 
 import cx.rain.mc.forgemod.chineseculture.api.interfaces.IMachine;
 import cx.rain.mc.forgemod.chineseculture.api.interfaces.IThermal;
@@ -13,7 +13,7 @@ import net.minecraftforge.common.capabilities.Capability;
 
 import javax.annotation.Nullable;
 
-public class tileEntityBlockStove extends TileEntity implements IThermal, ITickable, IMachine {
+public class TileEntityBlockStove extends TileEntity implements IThermal, ITickable, IMachine {
     private int Thermal;
     private MachineState state;
     private int overloadTick;
@@ -109,7 +109,7 @@ public class tileEntityBlockStove extends TileEntity implements IThermal, ITicka
         }
     }
 
-    public tileEntityBlockStove(){
+    public TileEntityBlockStove(){
         Thermal=0;
         state=MachineState.CLOSE;
     }

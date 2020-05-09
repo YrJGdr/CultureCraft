@@ -8,22 +8,22 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * ModBlock annotation.
- * For auto register blocks.
- * Use on class extends Block.
+ * ModItem annotation.
+ * For auto register items.
+ * Use on class extends Item.
  * @author Infinity_rain
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface ModBlock {
+public @interface ModItem {
     /**
-     * Block registry name.
+     * Item registry name.
      * @return RegistryName
      */
     String name();
 
     /**
-     * I18n key for block name.
+     * I18n key for item name.
      * @return TranslateKey
      */
     String translate() default "";

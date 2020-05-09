@@ -1,5 +1,6 @@
-package cx.rain.mc.forgemod.chineseculture.event;
+package cx.rain.mc.forgemod.chineseculture.core.registry;
 
+import cx.rain.mc.forgemod.chineseculture.api.annotation.ModBlock;
 import cx.rain.mc.forgemod.chineseculture.utility.SubClassHelper;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -9,20 +10,27 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 @EventBusSubscriber(modid = ChineseCulture.MODID)
-public class EventRegisterBlock {
-    public static List<Block> BLOCKS = new ArrayList<>();
+public class RegistryBlocks {
+    public static Map<String, Block> BLOCKS = new HashMap<>();
 
     static {
         for (Class<? extends Block> clazz :
                 SubClassHelper.getBlocks("cx.rain.mc.forgemod.chineseculture.block.automatic")) {
             try {
-                BLOCKS.add(clazz.getConstructor().newInstance());
+                String name = clazz.getAnnotation(ModBlock.class).name();
+                String translateKey = clazz.getAnnotation(ModBlock.class).translate();
+                if (translateKey.equals("")) {
+                    translateKey = name;
+                }
+                Block block = clazz.getConstructor().newInstance()
+                        .setRegistryName(ChineseCulture.MODID, name)
+                        .setUnlocalizedName(translateKey);
+                BLOCKS.put(name, block);
             } catch (NoSuchMethodException
                     | IllegalAccessException
                     | InstantiationException
@@ -36,16 +44,16 @@ public class EventRegisterBlock {
     @SubscribeEvent
     public static void onRegisterBlock(RegistryEvent.Register<Block> event) {
         ChineseCulture.INSTANCE.getLogger().info("Registering Blocks.");
-        for (Block b : BLOCKS) {
-            event.getRegistry().register(b);
-        }
+        BLOCKS.forEach((name, block) -> {
+            event.getRegistry().register(block);
+        });
     }
 
     @SubscribeEvent
     public static void registerItem(RegistryEvent.Register<Item> event) {
         ChineseCulture.INSTANCE.getLogger().info("Registering ItemBlocks.");
-        for (Block b : BLOCKS) {
-            event.getRegistry().register(new ItemBlock(b).setRegistryName(b.getRegistryName()));
-        }
+        BLOCKS.forEach((name, block) -> {
+            event.getRegistry().register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+        });
     }
 }

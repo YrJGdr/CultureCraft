@@ -1,24 +1,20 @@
 package cx.rain.mc.forgemod.chineseculture.item.automatic;
 
-import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
-import net.minecraft.creativetab.CreativeTabs;
+import cx.rain.mc.forgemod.chineseculture.api.annotation.ModItem;
+import cx.rain.mc.forgemod.chineseculture.tab.Tabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+@ModItem(name = "spirits", translate = "spirits")
 public class ItemSpirits extends ItemFood {
     public ItemSpirits() {
         super(4, 0.3F, false);
-        this.setUnlocalizedName(ChineseCulture.MODID+":spirits");
-        this.setRegistryName(ChineseCulture.MODID, "spirits");
         this.setAlwaysEdible();
-        this.setCreativeTab(CreativeTabs.FOOD);
+        this.setCreativeTab(Tabs.FOOD);
     }
     @Override
     protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player) {

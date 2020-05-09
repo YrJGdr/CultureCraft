@@ -1,23 +1,17 @@
 package cx.rain.mc.forgemod.chineseculture.block.automatic;
 
-import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
+import cx.rain.mc.forgemod.chineseculture.api.annotation.ModBlock;
 import cx.rain.mc.forgemod.chineseculture.api.interfaces.IMachine;
-import cx.rain.mc.forgemod.chineseculture.api.interfaces.IThermal;
-import cx.rain.mc.forgemod.chineseculture.block.api.BlockMachine;
-import cx.rain.mc.forgemod.chineseculture.block.tileentity.tileEntityBlockStove;
+import cx.rain.mc.forgemod.chineseculture.api.base.BlockMachineBase;
+import cx.rain.mc.forgemod.chineseculture.tileEntity.TileEntityBlockStove;
 import cx.rain.mc.forgemod.chineseculture.init.RegistryCapability;
-import cx.rain.mc.forgemod.chineseculture.init.RegistryCreativeTab;
-import net.minecraft.block.Block;
+import cx.rain.mc.forgemod.chineseculture.tab.Tabs;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -27,17 +21,16 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class BlockStove extends BlockMachine {
+@ModBlock(name = "stove", translate = "stove")
+public class BlockStove extends BlockMachineBase {
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
     public static final PropertyEnum<IMachine.MachineState> STATE = PropertyEnum.create("state",IMachine.MachineState.class);
 
     public BlockStove() {
         super(Material.GROUND);
-        this.setUnlocalizedName(ChineseCulture.MODID+":stove");
-        this.setRegistryName(ChineseCulture.MODID, "stove");
         this.setHardness(5F);
         this.setHarvestLevel("pickaxe",1);
-        this.setCreativeTab(RegistryCreativeTab.Machine);
+        this.setCreativeTab(Tabs.MACHINE);
     }
 
     @Override
@@ -76,7 +69,7 @@ public class BlockStove extends BlockMachine {
     @Nullable
     @Override
     public TileEntity createTileEntity(World world, IBlockState state) {
-        return new tileEntityBlockStove();
+        return new TileEntityBlockStove();
     }
 
     @Override

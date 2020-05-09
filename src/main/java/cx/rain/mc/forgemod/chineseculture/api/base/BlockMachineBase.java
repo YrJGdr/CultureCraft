@@ -1,4 +1,4 @@
-package cx.rain.mc.forgemod.chineseculture.block.api;
+package cx.rain.mc.forgemod.chineseculture.api.base;
 
 import cx.rain.mc.forgemod.chineseculture.api.interfaces.IMachine;
 import net.minecraft.block.Block;
@@ -18,16 +18,16 @@ import net.minecraft.world.World;
  * 机器方块类
  * 所有的机器都要继承于这个类
  */
-public class BlockMachine extends Block {
+public class BlockMachineBase extends Block {
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
     public static final PropertyEnum<IMachine.MachineState> STATE = PropertyEnum.create("state",IMachine.MachineState.class);
 
-    public BlockMachine(Material blockMaterialIn, MapColor blockMapColorIn) {
+    public BlockMachineBase(Material blockMaterialIn, MapColor blockMapColorIn) {
         super(blockMaterialIn, blockMapColorIn);
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(STATE, IMachine.MachineState.CLOSE));
     }
 
-    public BlockMachine(Material blockMaterialIn){
+    public BlockMachineBase(Material blockMaterialIn){
         this(blockMaterialIn,blockMaterialIn.getMaterialMapColor());
     }
 

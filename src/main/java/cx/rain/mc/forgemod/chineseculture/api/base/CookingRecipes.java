@@ -1,6 +1,9 @@
-package cx.rain.mc.forgemod.chineseculture.api.interfaces;
+package cx.rain.mc.forgemod.chineseculture.api.base;
 
 import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
+import cx.rain.mc.forgemod.chineseculture.api.interfaces.ICooking;
+import cx.rain.mc.forgemod.chineseculture.api.interfaces.ICookingTool;
+import cx.rain.mc.forgemod.chineseculture.api.interfaces.IThermal;
 import cx.rain.mc.forgemod.chineseculture.block.automatic.BlockStove;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
