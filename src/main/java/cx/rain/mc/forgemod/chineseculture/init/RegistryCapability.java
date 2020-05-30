@@ -1,7 +1,11 @@
 package cx.rain.mc.forgemod.chineseculture.init;
 
-import cx.rain.mc.forgemod.chineseculture.api.capability.*;
-import cx.rain.mc.forgemod.chineseculture.api.interfaces.*;
+import cx.rain.mc.forgemod.chineseculture.api.game.block.capability.*;
+import cx.rain.mc.forgemod.chineseculture.api.game.interfaces.*;
+import cx.rain.mc.forgemod.chineseculture.api.game.capability.CapabilityMEnergy;
+import cx.rain.mc.forgemod.chineseculture.api.game.capability.CapabilityThermal;
+import cx.rain.mc.forgemod.chineseculture.api.game.capability.CapabilityWaterPower;
+import cx.rain.mc.forgemod.chineseculture.api.game.capability.CapabilityWindEnergy;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.CapabilityManager;

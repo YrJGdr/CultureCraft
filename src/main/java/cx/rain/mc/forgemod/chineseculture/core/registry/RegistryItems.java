@@ -2,7 +2,7 @@ package cx.rain.mc.forgemod.chineseculture.core.registry;
 
 import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
 import cx.rain.mc.forgemod.chineseculture.api.annotation.ModItem;
-import cx.rain.mc.forgemod.chineseculture.utility.SubClassHelper;
+import cx.rain.mc.forgemod.chineseculture.util.SubClassHelper;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -18,7 +18,7 @@ public class RegistryItems {
 
     static {
         for (Class<? extends Item> clazz :
-                SubClassHelper.getItems("cx.rain.mc.forgemod.chineseculture.item.automatic")) {
+                SubClassHelper.getItems("cx.rain.mc.forgemod.chineseculture.item")) {
             try {
                 ModItem modItem = clazz.getAnnotation(ModItem.class);
                 String name = modItem.name();

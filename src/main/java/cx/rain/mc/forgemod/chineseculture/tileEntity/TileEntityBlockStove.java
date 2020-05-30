@@ -1,8 +1,8 @@
-package cx.rain.mc.forgemod.chineseculture.tileEntity;
+package cx.rain.mc.forgemod.chineseculture.tileentity;
 
-import cx.rain.mc.forgemod.chineseculture.api.interfaces.IMachine;
-import cx.rain.mc.forgemod.chineseculture.api.interfaces.IThermal;
-import cx.rain.mc.forgemod.chineseculture.block.automatic.BlockStove;
+import cx.rain.mc.forgemod.chineseculture.api.game.interfaces.IMachine;
+import cx.rain.mc.forgemod.chineseculture.api.game.interfaces.IThermal;
+import cx.rain.mc.forgemod.chineseculture.block.BlockStove;
 import cx.rain.mc.forgemod.chineseculture.init.RegistryCapability;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;

@@ -1,7 +1,7 @@
 package cx.rain.mc.forgemod.chineseculture.init;
 
 import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
-import cx.rain.mc.forgemod.chineseculture.tileEntity.TileEntityBlockStove;
+import cx.rain.mc.forgemod.chineseculture.tileentity.TileEntityBlockStove;
 import net.minecraft.block.Block;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;

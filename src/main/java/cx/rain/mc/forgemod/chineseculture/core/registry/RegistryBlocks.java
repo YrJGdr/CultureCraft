@@ -1,7 +1,7 @@
 package cx.rain.mc.forgemod.chineseculture.core.registry;
 
 import cx.rain.mc.forgemod.chineseculture.api.annotation.ModBlock;
-import cx.rain.mc.forgemod.chineseculture.utility.SubClassHelper;
+import cx.rain.mc.forgemod.chineseculture.util.SubClassHelper;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -20,7 +20,7 @@ public class RegistryBlocks {
 
     static {
         for (Class<? extends Block> clazz :
-                SubClassHelper.getBlocks("cx.rain.mc.forgemod.chineseculture.block.automatic")) {
+                SubClassHelper.getBlocks("cx.rain.mc.forgemod.chineseculture.block")) {
             try {
                 String name = clazz.getAnnotation(ModBlock.class).name();
                 String translateKey = clazz.getAnnotation(ModBlock.class).translate();
