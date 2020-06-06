@@ -9,11 +9,12 @@ import net.minecraftforge.common.capabilities.Capability;
 import java.util.concurrent.Callable;
 
 /**
- * WindEnergy interface's Capability
+ * WindEnergy output Capability
+ * @author Infinity_rain
  */
 public class CapabilityWindEnergy {
     /**
-     * WindEnergy interface's Storage
+     * WindEnergy output Storage
      */
     public static class Storage implements Capability.IStorage<IWindEnergy>
     {
@@ -31,7 +32,7 @@ public class CapabilityWindEnergy {
     }
 
     /**
-     * WindEnergy interface's factory method
+     * WindEnergy output factory method
      */
     public static class Factory implements Callable<IWindEnergy> {
 
@@ -41,9 +42,9 @@ public class CapabilityWindEnergy {
         }
 
         /**
-         * WindEnergy interface's default implement
+         * WindEnergy output default implement
          */
-        private class Implementation implements IWindEnergy{
+        private class Implementation implements IWindEnergy {
             private int WindEnergy;
 
             @Override

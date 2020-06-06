@@ -17,13 +17,13 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface ModBlock {
     /**
-     * 方块注册名
+     * Registry name of block
      * @return RegistryName
      */
     String name();
 
     /**
-     * 未本地化名称
+     * Unlocalized name of block
      * @return TranslateKey
      */
     String translate() default "";

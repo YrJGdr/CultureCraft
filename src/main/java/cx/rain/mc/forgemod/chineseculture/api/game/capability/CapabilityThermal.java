@@ -9,11 +9,12 @@ import net.minecraftforge.common.capabilities.Capability;
 import java.util.concurrent.Callable;
 
 /**
- * Thermal interface's Capability
+ * Thermal output Capability
+ * @author Infinity_rain
  */
 public class CapabilityThermal {
     /**
-     * Thermal interface's Storage
+     * Thermal output Storage
      */
     public static class Storage implements Capability.IStorage<IThermal>
     {
@@ -31,7 +32,7 @@ public class CapabilityThermal {
     }
 
     /**
-     * Thermal interface's factory method
+     * Thermal output factory method
      */
     public static class Factory implements Callable<IThermal> {
 
@@ -41,9 +42,9 @@ public class CapabilityThermal {
         }
 
         /**
-         * Thermal interface's 默认实现类
+         * Thermal output default implement
          */
-        private class Implementation implements IThermal{
+        private class Implementation implements IThermal {
             private int Thermal;
 
             @Override

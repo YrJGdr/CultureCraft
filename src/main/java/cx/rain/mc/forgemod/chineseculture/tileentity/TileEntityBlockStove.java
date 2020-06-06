@@ -5,21 +5,32 @@ import cx.rain.mc.forgemod.chineseculture.api.game.interfaces.IThermal;
 import cx.rain.mc.forgemod.chineseculture.block.BlockStove;
 import cx.rain.mc.forgemod.chineseculture.init.RegistryCapability;
 import net.minecraft.block.state.IBlockState;
+
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nullable;
 
-public class TileEntityBlockStove extends TileEntity implements IThermal, ITickable, IMachine {
+public class TileEntityBlockStove extends TileEntity implements IThermal, ITickable, IMachine{
     private int Thermal;
     private MachineState state;
     private int overloadTick;
     private int ThermalLossProgress=0;
 
     private IThermal ThermalCap = this;
+
+    private IItemHandler handler = new ItemStackHandler(2);
+    private int[] FuelProgress = new int[]{0, 0};
 
     @Override
     public int getThermal() {
@@ -58,12 +69,31 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
         this.Thermal-=Thermal;
     }
 
+    public void decThermal(){
+        ThermalLossProgress++;
+        if(ThermalLossProgress==5){
+            ThermalLossProgress=0;
+            if(Thermal!=0){
+                Thermal-=1;
+            }
+        }
+    }
+
+    public void burningFuel(){
+        for(int i=0;i<2;i++){
+            if(handler.getStackInSlot(i)!= ItemStack.EMPTY){
+                FuelProgress[i]+=1;
+                Thermal+=(TileEntityFurnace.getItemBurnTime(handler.getStackInSlot(i))/100);
+                if(FuelProgress[i]==100){
+                    handler.insertItem(i,ItemStack.EMPTY,false);
+                }
+            }
+        }
+    }
+
     @Override
     public void update() {
-        if(this.world.isRemote){
-            return;
-        }
-        if(state==MachineState.DAMAGED){
+        if(this.world.isRemote&&state==MachineState.DAMAGED){
             return;
         }
         if(Thermal>400){
@@ -86,9 +116,7 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
 
         if(Thermal==0){
             state=MachineState.CLOSE;
-            IBlockState blockstate = this.world.getBlockState(this.pos);
-            blockstate = blockstate.getBlock().getActualState(blockstate,this.world,this.pos);
-            this.world.setBlockState(this.pos,blockstate);
+            BlockStove.transformMachineState(state,this.world,this.pos);
             return;
         }
         else{
@@ -102,11 +130,8 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
         if(state==MachineState.OVERLOAD){
             overloadTick++;
         }
-        ThermalLossProgress++;
-        if(ThermalLossProgress==5){
-            ThermalLossProgress=0;
-            Thermal-=1;
-        }
+        decThermal();
+        burningFuel();
     }
 
     public TileEntityBlockStove(){
@@ -124,11 +149,15 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
         this.state=state;
     }
 
+    private static EnumFacing getFacing(IBlockAccess worldIn,BlockPos pos){
+        return worldIn.getBlockState(pos).getValue(BlockStove.FACING);
+    }
+
     @Override
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);
         this.Thermal=compound.getInteger("Thermal");
-        this.state=MachineState.valueOf(compound.getString("MachineState"));
+        this.state=MachineState.valueOf(compound.getString("MachineState")==""?"CLOSE":compound.getString("MachineState"));
         this.overloadTick=compound.getInteger("OverloadTick");
     }
 
@@ -142,15 +171,19 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
 
     @Override
     public boolean hasCapability(Capability<?> capability, @Nullable EnumFacing facing) {
-        return capability==RegistryCapability.ThermalCapability||super.hasCapability(capability, facing);
+        return (capability==RegistryCapability.ThermalCapabilityOutput&&facing==EnumFacing.UP)||(capability==CapabilityItemHandler.ITEM_HANDLER_CAPABILITY&&facing==getFacing(world,pos))||super.hasCapability(capability, facing);
     }
 
     @Nullable
     @Override
     public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing) {
-        if (capability == RegistryCapability.ThermalCapability) {
-            return RegistryCapability.ThermalCapability.cast(this.ThermalCap);
-        } else {
+        if (capability == RegistryCapability.ThermalCapabilityOutput&&facing==EnumFacing.UP) {
+            return RegistryCapability.ThermalCapabilityOutput.cast(this.ThermalCap);
+        }
+        else  if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY&&facing==getFacing(world,pos)){
+            return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(handler);
+        }
+        else {
             return super.getCapability(capability, facing);
         }
     }

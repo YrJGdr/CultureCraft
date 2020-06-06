@@ -9,11 +9,12 @@ import net.minecraftforge.common.capabilities.Capability;
 import java.util.concurrent.Callable;
 
 /**
- * WaterPower interface's Capability
+ * WaterPower output Capability
+ * @author Infinity_rain
  */
 public class CapabilityWaterPower {
     /**
-     * WaterPower interface's Storage
+     * WaterPower output Storage
      */
     public static class Storage implements Capability.IStorage<IWaterPower>
     {
@@ -31,7 +32,7 @@ public class CapabilityWaterPower {
     }
 
     /**
-     * WaterPower interface's factory method
+     * WaterPower output factory method
      */
     public static class Factory implements Callable<IWaterPower> {
 
@@ -41,9 +42,9 @@ public class CapabilityWaterPower {
         }
 
         /**
-         * WaterPower interface's default implement
+         * WaterPower output default implement
          */
-        private class Implementation implements IWaterPower{
+        private class Implementation implements IWaterPower {
             private int WaterPower;
 
             @Override

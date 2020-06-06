@@ -1,4 +1,7 @@
-cx.rain.mc.forgemod.chineseculture.api.game.block.capability
+cx.rain.mc.forgemod.chineseculture.api.annotation
+cx.rain.mc.forgemod.chineseculture.api.game.block
+cx.rain.mc.forgemod.chineseculture.api.game.capability
+cx.rain.mc.forgemod.chineseculture.api.game.cooking
 cx.rain.mc.forgemod.chineseculture.api.game.interfaces
 cx.rain.mc.forgemod.chineseculture.api.math.vec.Double
 cx.rain.mc.forgemod.chineseculture.api.math.vec.Float

@@ -11,7 +11,8 @@ import javax.annotation.Nonnull;
 
 /**
  * Recipe interface
- * The advanced recipe from ChineseCulture or ChineseCulture extend must implements it
+ * The advanced recipe must implements it
+ * @author Infinity_rain
  */
 public interface ICooking extends IForgeRegistryEntry<ICooking> {
     /**

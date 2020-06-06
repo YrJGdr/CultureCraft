@@ -16,7 +16,8 @@ import net.minecraft.world.World;
 
 /**
  * MachineBlockBase class
- * Every machine from ChineseCulture or ChineseCulture extend must extends it
+ * All machine from ChineseCulture or ChineseCulture extend must extends it
+ * @author Infinity_rain
  */
 public abstract class BlockMachineBase extends Block {
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
@@ -96,6 +97,9 @@ public abstract class BlockMachineBase extends Block {
     }
 
     public static void transformMachineState(IMachine.MachineState state,World worldIn,BlockPos pos){
+        TileEntity e = worldIn.getTileEntity(pos);
         worldIn.setBlockState(pos,worldIn.getBlockState(pos).withProperty(STATE,state),3);
+        worldIn.setBlockState(pos,worldIn.getBlockState(pos).withProperty(STATE,state),3);
+        worldIn.setTileEntity(pos,e);
     }
 }

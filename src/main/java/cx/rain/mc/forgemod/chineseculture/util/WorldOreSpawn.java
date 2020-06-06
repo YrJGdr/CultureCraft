@@ -10,7 +10,8 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 import java.util.Random;
 
 /**
- * 矿石生成类
+ * Ore Spawn
+ * @author flysong
  */
 public class WorldOreSpawn extends WorldGenerator {
     private int MaxY;
@@ -19,9 +20,9 @@ public class WorldOreSpawn extends WorldGenerator {
     private WorldGenMinable Generator;
 
     /**
-     * @param MaxY 最大高度
-     * @param SpawnTime 生成次数,为负则一个区块生成可能为1/|SpawnTime|，为正则一个区块生成|SpawnTime|/1次
-     * @param Generator 生成器
+     * @param MaxY Max Pos Y
+     * @param SpawnTime Spawn time,if negative, the probability of a chunk generation is AddTime/|SpawnTime|,else, the times of chunk generation |SpawnTime|/AddTime
+     * @param Generator Generator
      */
     public WorldOreSpawn(int MaxY, int SpawnTime,WorldGenMinable Generator)
     {
@@ -30,10 +31,10 @@ public class WorldOreSpawn extends WorldGenerator {
 
     /**
      *
-     * @param MaxY 最大高度
-     * @param SpawnTime 生成次数,为负则一个区块生成可能为AddTime/|SpawnTime|，为正则一个区块生成|SpawnTime|/AddTime次
-     * @param Generator 生成器
-     * @param AddTime 若SpawnTime为负则一个区块生成可能为AddTime/|SpawnTime|，为正则一个区块生成|SpawnTime|/AddTime次
+     * @param MaxY Max Pos Y
+     * @param SpawnTime Spawn time,if negative, the probability of a chunk generation is AddTime/|SpawnTime|,else, the times of chunk generation |SpawnTime|/AddTime
+     * @param Generator Generator
+     * @param AddTime If SpawnTime is negative, the probability of a chunk generation is AddTime/|SpawnTime|,else, the times of chunk generation |SpawnTime|/AddTime
      */
     public WorldOreSpawn(int MaxY, int SpawnTime, int AddTime,WorldGenMinable Generator)
     {

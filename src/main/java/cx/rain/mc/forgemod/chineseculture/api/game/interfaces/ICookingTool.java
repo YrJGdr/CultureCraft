@@ -2,7 +2,7 @@ package cx.rain.mc.forgemod.chineseculture.api.game.interfaces;
 
 /**
  * Cooking tool interface
- * Every cooking tool from ChineseCulture or ChineseCulture extend must implements it
+ * All cooking tool must implements it
  */
 public interface ICookingTool {
     /**
@@ -18,14 +18,14 @@ public interface ICookingTool {
     void setCookingToolType(String type);
 
     /**
-     * 获得厨具等级
-     * @return 厨具的等级
+     * Get the level of cooking tool
+     * @return The level of cooking tool
      */
     int getCookingToolLevel();
 
     /**
-     * 设置厨具等级
-     * @param level 厨具的等级
+     * Set the level of cooking tool
+     * @param level The level of cooking tool
      */
     void setCookingToolLevel(int level);
 }

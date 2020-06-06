@@ -1,41 +1,40 @@
 package cx.rain.mc.forgemod.chineseculture.api.game.interfaces;
 
 /**
- * 所有能够利用热力的机器的TileEntity都要实现这个接口
- * I:Interface
- * @author flysong
+ * All Tile Entity of machines that can output thermal must implement this interface
+ * @author Infinity_rain
  */
 public interface IThermal {
     /**
-     * 获得机器的热力
-     * @return 热力
+     * Get thermal
+     * @return Thermal
      * @author flysong
      */
     int getThermal();
 
     /**
-     * 设置机器的热力
-     * @param Thermal 热力
+     * Set thermal
+     * @param Thermal Thermal
      * @author flysong
      */
     void setThermal(int Thermal);
 
     /**
-     * 重置机器的热力
+     * Reset thermal
      * @author flysong
      */
     void resetThermal();
 
     /**
-     * 增加机器的热力
-     * @param Thermal 热力
+     * Add thermal
+     * @param Thermal Thermal
      * @author flysong
      */
     void addThermal(int Thermal);
 
     /**
-     * 减少机器的热力
-     * @param Thermal 热力
+     * Sub thermal
+     * @param Thermal Thermal
      * @author flysong
      */
     void subThermal(int Thermal);

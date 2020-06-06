@@ -1,41 +1,40 @@
 package cx.rain.mc.forgemod.chineseculture.api.game.interfaces;
 
 /**
- * 所有能够利用水能的机器的TileEntity都要实现这个接口
- * I:Interface
- * @author flysong
+ * All Tile Entity of machines that can output water power must implement this interface
+ * @author Infinity_rain
  */
 public interface IWaterPower {
     /**
-     * 获得机器的水能
-     * @return 水能
+     * Get water power
+     * @return Water power
      * @author flysong
      */
     int getWaterPower();
 
     /**
-     * 设置机器的水能
-     * @param WaterPower 水能
+     * Set water power
+     * @param WaterPower Water power
      * @author flysong
      */
     void setWaterPower(int WaterPower);
 
     /**
-     * 重置机器的水能
+     * Reset water power
      * @author flysong
      */
     void resetWaterPower();
 
     /**
-     * 增加机器的水能
-     * @param WaterPower 水能
+     * Add water power
+     * @param WaterPower Water power
      * @author flysong
      */
     void addWaterPower(int WaterPower);
 
     /**
-     * 减少机器的水能
-     * @param WaterPower 水能
+     * Sub water power
+     * @param WaterPower Water power
      * @author flysong
      */
     void subWaterPower(int WaterPower);

@@ -20,5 +20,5 @@ itemGroup.chineseculture.tab.block=Chinese Culture | Building Blocks
 itemGroup.chineseculture.tab.food=Chinese Culture | Foods
 itemGroup.chineseculture.tab.machine=Chinese Culture | Machine
 
-# Events
+# Messages
 event.player.join.welcome=Welcome!

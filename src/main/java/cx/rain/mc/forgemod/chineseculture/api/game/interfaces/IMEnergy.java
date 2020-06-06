@@ -1,43 +1,42 @@
 package cx.rain.mc.forgemod.chineseculture.api.game.interfaces;
 
 /**
- * 所有所有能够利用机械能的机器的TileEntity都要实现这个接口
+ * All Tile Entity of machines that can output MEnergy must implement this interface
  * MEnergy:MechanicalEnergy
- * I:Interface
- * @author flysong
+ * @author Infinity_rain
  */
 public interface IMEnergy {
 
     /**
-     * 获得机器的机械能
-     * @return 机械能
+     * Get MEnergy
+     * @return MEnergy
      * @author flysong
      */
     int getMEnergy();
 
     /**
-     * 设置机器的机械能
-     * @param MEnergy 机械能
+     * Set MEnergy
+     * @param MEnergy MEnergy
      * @author flysong
      */
     void setMEnergy(int MEnergy);
 
     /**
-     * 重置机器的机械能
+     * Reset MEnergy
      * @author flysong
      */
     void resetMEnergy();
 
     /**
-     * 增加机器的机械能
-     * @param MEnergy 机械能
+     * Add MEnergy
+     * @param MEnergy MEnergy
      * @author flysong
      */
     void addMEnergy(int MEnergy);
 
     /**
-     * 减少机器的机械能
-     * @param MEnergy 机械能
+     * Sub MEnergy
+     * @param MEnergy MEnergy
      * @author flysong
      */
     void subMEnergy(int MEnergy);

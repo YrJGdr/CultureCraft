@@ -1,11 +1,7 @@
 package cx.rain.mc.forgemod.chineseculture.init;
 
-import cx.rain.mc.forgemod.chineseculture.api.game.block.capability.*;
 import cx.rain.mc.forgemod.chineseculture.api.game.interfaces.*;
-import cx.rain.mc.forgemod.chineseculture.api.game.capability.CapabilityMEnergy;
-import cx.rain.mc.forgemod.chineseculture.api.game.capability.CapabilityThermal;
-import cx.rain.mc.forgemod.chineseculture.api.game.capability.CapabilityWaterPower;
-import cx.rain.mc.forgemod.chineseculture.api.game.capability.CapabilityWindEnergy;
+import cx.rain.mc.forgemod.chineseculture.api.game.capability.*;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityInject;
 import net.minecraftforge.common.capabilities.CapabilityManager;
@@ -13,16 +9,28 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class RegistryCapability {
     @CapabilityInject(IMEnergy.class)
-    public static Capability<IMEnergy> MEnergyCapability;
+    public static Capability<IMEnergy> MEnergyCapabilityOutput;
 
     @CapabilityInject(IThermal.class)
-    public static Capability<IThermal> ThermalCapability;
+    public static Capability<IThermal> ThermalCapabilityOutput;
 
     @CapabilityInject(IWaterPower.class)
-    public static Capability<IWaterPower> WaterPowerCapability;
+    public static Capability<IWaterPower> WaterPowerCapabilityOutput;
 
     @CapabilityInject(IWindEnergy.class)
-    public static Capability<IWindEnergy> WindEnergyCapability;
+    public static Capability<IWindEnergy> WindEnergyCapabilityOutput;
+
+    @CapabilityInject(IMEnergy.class)
+    public static Capability<IMEnergy> MEnergyCapabilityInput;
+
+    @CapabilityInject(IThermal.class)
+    public static Capability<IThermal> ThermalCapabilityInput;
+
+    @CapabilityInject(IWaterPower.class)
+    public static Capability<IWaterPower> WaterPowerCapabilityInput;
+
+    @CapabilityInject(IWindEnergy.class)
+    public static Capability<IWindEnergy> WindEnergyCapabilityInput;
 
     public RegistryCapability(FMLPreInitializationEvent event)
     {

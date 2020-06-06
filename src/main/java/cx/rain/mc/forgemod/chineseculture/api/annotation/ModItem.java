@@ -17,13 +17,13 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface ModItem {
     /**
-     * Item registry name.
+     * Registry name of item
      * @return RegistryName
      */
     String name();
 
     /**
-     * I18n key for item name.
+     * Unlocalized name of block
      * @return TranslateKey
      */
     String translate() default "";

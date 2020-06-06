@@ -9,12 +9,13 @@ import net.minecraftforge.common.capabilities.Capability;
 import java.util.concurrent.Callable;
 
 /**
- * MEnergy interface's Capability
+ * MEnergy output Capability
+ * @author Infinity_rain
  */
 public class CapabilityMEnergy {
 
     /**
-     * MEnergy interface's Storage
+     * MEnergy output Storage
      */
     public static class Storage implements Capability.IStorage<IMEnergy>
     {
@@ -32,7 +33,7 @@ public class CapabilityMEnergy {
     }
 
     /**
-     * MEnergy interface's factory method
+     * MEnergy output factory method
      */
     public static class Factory implements Callable<IMEnergy> {
 
@@ -42,9 +43,9 @@ public class CapabilityMEnergy {
         }
 
         /**
-         * MEnergy interface's default implement
+         * MEnergy output default implement
          */
-        private class Implementation implements IMEnergy{
+        private class Implementation implements IMEnergy {
             private int MEnergy;
 
             @Override

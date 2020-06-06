@@ -26,9 +26,7 @@ public class SubClassHelper {
         Set<Class<?>> classes = reflections.getTypesAnnotatedWith(ModItem.class);
         Set<Class<? extends Item>> items = new HashSet<>();
         for (Class<?> clazz : classes) {
-            if (clazz.isAssignableFrom(Item.class)) {
-                items.add((Class<? extends Item>) clazz);
-            }
+            items.add((Class<? extends Item>) clazz);
         }
         return items;
     }
@@ -45,9 +43,7 @@ public class SubClassHelper {
         Set<Class<?>> classes = reflections.getTypesAnnotatedWith(ModBlock.class);
         Set<Class<? extends Block>> blocks = new HashSet<>();
         for (Class<?> clazz : classes) {
-            if (clazz.isAssignableFrom(Item.class)) {
-                blocks.add((Class<? extends Block>) clazz);
-            }
+            blocks.add((Class<? extends Block>) clazz);
         }
         return blocks;
     }

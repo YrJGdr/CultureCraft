@@ -3,46 +3,42 @@ package cx.rain.mc.forgemod.chineseculture.api.game.interfaces;
 import net.minecraft.util.IStringSerializable;
 
 /**
- * 所有机器的TileEntity都必须实现这个接口
- * I:Interface
+ * All Tile Entity of machines must implement this interface
  * @author flysong
  */
 public interface IMachine {
     /**
-     * 获得机器状态
-     * @return 机器状态
-     * @author flysong
+     * Get machine state
+     * @return Machine State
      */
     MachineState getWorkingState();
 
     /**
-     * 设置机器状态
-     * @param state 机器状态
-     * @author flysong
+     * Set machine state
+     * @param state Machine State
      */
     void setWorkingState(MachineState state);
 
     /**
-     * 机器状态类
-     * 所有的机器都必须处于5种状态其一
-     * @author flysong
+     * MachineState Enum
+     * All machines must be in one of 5 states
      */
     enum MachineState implements IStringSerializable {
-        /**关闭*/
+        /**Close*/
         CLOSE("close"),
-        /**空闲*/
+        /**IDLE*/
         IDLE("idle"),
-        /**工作*/
+        /**Working*/
         WORKING("working"),
-        /**过载*/
+        /**Overload*/
         OVERLOAD("overload"),
-        /**损坏*/
+        /**damaged*/
         DAMAGED("damaged");
         private String name;
 
         /**
-         * 获得该枚举常量的名字
-         * @return 该枚举常量的名字
+         * Get the enum constant's name
+         * @return The enum constant's name
          */
         @Override
         public String getName(){
