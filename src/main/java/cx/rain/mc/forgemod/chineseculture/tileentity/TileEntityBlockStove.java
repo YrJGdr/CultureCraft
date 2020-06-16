@@ -1,10 +1,10 @@
 package cx.rain.mc.forgemod.chineseculture.tileentity;
 
+import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
 import cx.rain.mc.forgemod.chineseculture.api.game.interfaces.IMachine;
 import cx.rain.mc.forgemod.chineseculture.api.game.interfaces.IThermal;
 import cx.rain.mc.forgemod.chineseculture.block.BlockStove;
 import cx.rain.mc.forgemod.chineseculture.init.RegistryCapability;
-import net.minecraft.block.state.IBlockState;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -80,15 +80,20 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
     }
 
     public void burningFuel(){
+        ChineseCulture.INSTANCE.getLogger().info("Burn:"+handler.getStackInSlot(0).getDisplayName()+"in slot 0");
+        ChineseCulture.INSTANCE.getLogger().info("Burn:"+handler.getStackInSlot(1).getDisplayName()+"in slot 1");
         for(int i=0;i<2;i++){
             if(handler.getStackInSlot(i)!= ItemStack.EMPTY){
                 FuelProgress[i]+=1;
                 Thermal+=(TileEntityFurnace.getItemBurnTime(handler.getStackInSlot(i))/100);
                 if(FuelProgress[i]==100){
+                    ChineseCulture.INSTANCE.getLogger().info("Burn:"+handler.getStackInSlot(i).getDisplayName());
                     handler.insertItem(i,ItemStack.EMPTY,false);
+                    FuelProgress[i]=0;
                 }
             }
         }
+        this.markDirty();
     }
 
     @Override
@@ -101,6 +106,7 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
                 Thermal=0;
                 state=MachineState.DAMAGED;
                 BlockStove.transformMachineState(state,this.world,this.pos);
+                this.markDirty();
                 return;
             }
             else if(state!=MachineState.OVERLOAD){
@@ -114,9 +120,11 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
             }
         }
 
+        burningFuel();
         if(Thermal==0){
             state=MachineState.CLOSE;
             BlockStove.transformMachineState(state,this.world,this.pos);
+            this.markDirty();
             return;
         }
         else{
@@ -131,7 +139,7 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
             overloadTick++;
         }
         decThermal();
-        burningFuel();
+        this.markDirty();
     }
 
     public TileEntityBlockStove(){
@@ -159,6 +167,9 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
         this.Thermal=compound.getInteger("Thermal");
         this.state=MachineState.valueOf(compound.getString("MachineState")==""?"CLOSE":compound.getString("MachineState"));
         this.overloadTick=compound.getInteger("OverloadTick");
+        for(int i=0;i<2;i++){
+            this.handler.insertItem(i,new ItemStack(compound.getCompoundTag("ItemStack"+i)),true);
+        }
     }
 
     @Override
@@ -166,6 +177,9 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
         compound.setInteger("Thermal",Thermal);
         compound.setString("MachineState",state.toString());
         compound.setInteger("OverloadTick",overloadTick);
+        for(int i=0;i<2;i++){
+            compound.setTag("ItemStack"+i,this.handler.getStackInSlot(i).writeToNBT(new NBTTagCompound()));
+        }
         return super.writeToNBT(compound);
     }
 

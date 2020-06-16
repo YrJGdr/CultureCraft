@@ -1,5 +1,6 @@
 package cx.rain.mc.forgemod.chineseculture.block;
 
+import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
 import cx.rain.mc.forgemod.chineseculture.api.annotation.ModBlock;
 import cx.rain.mc.forgemod.chineseculture.api.game.interfaces.IMachine;
 import cx.rain.mc.forgemod.chineseculture.api.game.block.BlockMachineBase;
@@ -63,11 +64,15 @@ public class BlockStove extends BlockMachineBase {
         if(!worldIn.isRemote){
             TileEntity te = worldIn.getTileEntity(pos);
             if(TileEntityFurnace.isItemFuel(playerIn.getHeldItem(hand))){
-                for(int i=0;i<2;i++){
-                    if(te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY,state.getValue(FACING)).getStackInSlot(i)==ItemStack.EMPTY){
-                        te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY,state.getValue(FACING)).insertItem(i,new ItemStack(playerIn.getHeldItem(hand).getItem()),false);
-                        playerIn.getHeldItem(hand).setCount(playerIn.getHeldItem(hand).getCount()-1);
-                        break;
+                if(te.hasCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY,state.getValue(FACING))) {
+                    for (int i = 0; i < 2; i++) {
+                        if (!te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, state.getValue(FACING)).getStackInSlot(i).isEmpty()) {
+                            te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, state.getValue(FACING)).insertItem(i, new ItemStack(playerIn.getHeldItem(hand).getItem()), false);
+                            ChineseCulture.INSTANCE.getLogger().info("Add:" + playerIn.getHeldItem(hand).getDisplayName() + " in slot" + i);
+                            te.markDirty();
+                            playerIn.getHeldItem(hand).shrink(1);
+                            break;
+                        }
                     }
                 }
             }
