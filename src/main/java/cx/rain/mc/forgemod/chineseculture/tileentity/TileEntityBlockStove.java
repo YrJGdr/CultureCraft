@@ -168,7 +168,7 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
         this.state=MachineState.valueOf(compound.getString("MachineState")==""?"CLOSE":compound.getString("MachineState"));
         this.overloadTick=compound.getInteger("OverloadTick");
         for(int i=0;i<2;i++){
-            this.handler.insertItem(i,new ItemStack(compound.getCompoundTag("ItemStack"+i)),true);
+            this.handler.insertItem(i,new ItemStack(compound.getCompoundTag("ItemStack"+i)),false);
         }
     }
 

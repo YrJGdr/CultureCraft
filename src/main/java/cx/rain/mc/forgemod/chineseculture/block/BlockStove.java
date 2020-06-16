@@ -66,7 +66,7 @@ public class BlockStove extends BlockMachineBase {
             if(TileEntityFurnace.isItemFuel(playerIn.getHeldItem(hand))){
                 if(te.hasCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY,state.getValue(FACING))) {
                     for (int i = 0; i < 2; i++) {
-                        if (!te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, state.getValue(FACING)).getStackInSlot(i).isEmpty()) {
+                        if (te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, state.getValue(FACING)).getStackInSlot(i).isEmpty()) {
                             te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, state.getValue(FACING)).insertItem(i, new ItemStack(playerIn.getHeldItem(hand).getItem()), false);
                             ChineseCulture.INSTANCE.getLogger().info("Add:" + playerIn.getHeldItem(hand).getDisplayName() + " in slot" + i);
                             te.markDirty();
