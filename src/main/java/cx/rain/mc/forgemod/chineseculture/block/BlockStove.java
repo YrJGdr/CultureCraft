@@ -63,17 +63,10 @@ public class BlockStove extends BlockMachineBase {
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if(!worldIn.isRemote){
             TileEntity te = worldIn.getTileEntity(pos);
-            if(TileEntityFurnace.isItemFuel(playerIn.getHeldItem(hand))){
-                if(te.hasCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY,state.getValue(FACING))) {
-                    for (int i = 0; i < 2; i++) {
-                        if (te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, state.getValue(FACING)).getStackInSlot(i).isEmpty()) {
-                            te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, state.getValue(FACING)).insertItem(i, new ItemStack(playerIn.getHeldItem(hand).getItem()), false);
-                            ChineseCulture.INSTANCE.getLogger().info("Add:" + playerIn.getHeldItem(hand).getDisplayName() + " in slot" + i);
-                            te.markDirty();
-                            playerIn.getHeldItem(hand).shrink(1);
-                            break;
-                        }
-                    }
+            if(te.hasCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY,state.getValue(FACING))) {
+                for (int i = 0; i < 2; i++) {
+                    playerIn.setHeldItem(hand,te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, state.getValue(FACING)).insertItem(i,playerIn.getHeldItem(hand), false));
+                    break;
                 }
             }
             else{
