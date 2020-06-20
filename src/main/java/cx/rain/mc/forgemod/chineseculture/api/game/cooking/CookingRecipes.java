@@ -16,6 +16,7 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 /**
  * Normal recipe
  * You only need to create such an instance for normal recipe
+ * {@link IThermal}
  * @author Infinity_rain
  */
 public class CookingRecipes extends IForgeRegistryEntry.Impl<ICooking> implements ICooking{

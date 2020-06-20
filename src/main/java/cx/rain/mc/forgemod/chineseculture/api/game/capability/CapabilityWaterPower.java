@@ -1,5 +1,6 @@
 package cx.rain.mc.forgemod.chineseculture.api.game.capability;
 
+import cx.rain.mc.forgemod.chineseculture.api.game.interfaces.IThermal;
 import cx.rain.mc.forgemod.chineseculture.api.game.interfaces.IWaterPower;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagInt;
@@ -9,7 +10,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import java.util.concurrent.Callable;
 
 /**
- * WaterPower output Capability
+ * The Capability for {@link IWaterPower}
  * @author Infinity_rain
  */
 public class CapabilityWaterPower {

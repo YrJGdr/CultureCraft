@@ -9,7 +9,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import java.util.concurrent.Callable;
 
 /**
- * Thermal output Capability
+ * The Capability for {@link IThermal}
  * @author Infinity_rain
  */
 public class CapabilityThermal {

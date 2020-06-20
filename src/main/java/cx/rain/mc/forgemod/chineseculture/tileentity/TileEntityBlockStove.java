@@ -4,31 +4,23 @@ import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
 import cx.rain.mc.forgemod.chineseculture.api.game.capability.FuelStackHandler;
 import cx.rain.mc.forgemod.chineseculture.api.game.interfaces.IMachine;
 import cx.rain.mc.forgemod.chineseculture.api.game.interfaces.IThermal;
+import cx.rain.mc.forgemod.chineseculture.api.game.tileentity.TileEntityMachineBase;
 import cx.rain.mc.forgemod.chineseculture.block.BlockStove;
 import cx.rain.mc.forgemod.chineseculture.init.RegistryCapability;
 
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.network.play.server.SPacketUpdateTileEntity;
-import net.minecraft.server.management.PlayerChunkMapEntry;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nullable;
 
-public class TileEntityBlockStove extends TileEntity implements IThermal, ITickable, IMachine{
+public class TileEntityBlockStove extends TileEntityMachineBase implements IThermal, ITickable, IMachine{
     private int Thermal;
-    private MachineState state;
     private int overloadTick;
     private int ThermalLossProgress=0;
 
@@ -48,6 +40,8 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
             return;
         }
         this.Thermal=Thermal;
+        isChange=true;
+        this.updateData();
     }
 
     @Override
@@ -56,6 +50,8 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
             return;
         }
         this.Thermal=0;
+        isChange=true;
+        this.updateData();
     }
 
     @Override
@@ -64,6 +60,8 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
             return;
         }
         this.Thermal+=Thermal;
+        isChange=true;
+        this.updateData();
     }
 
     @Override
@@ -72,16 +70,21 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
             return;
         }
         this.Thermal-=Thermal;
+        isChange=true;
+        this.updateData();
     }
 
     public void decThermal(){
+        if(Thermal==0){
+            return;
+        }
         ThermalLossProgress++;
         if(ThermalLossProgress==5){
             ThermalLossProgress=0;
-            if(Thermal!=0){
-                Thermal-=1;
-            }
+            Thermal-=1;
         }
+        isChange=true;
+        this.updateData();
     }
 
     public void burningFuel(){
@@ -96,6 +99,7 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
                     handler.insertItem(i,ItemStack.EMPTY,false);
                     FuelProgress[i]=0;
                 }
+                isChange=true;
             }
         }
         this.updateData();
@@ -111,6 +115,7 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
                 Thermal=0;
                 state=MachineState.DAMAGED;
                 BlockStove.transformMachineState(state,this.world,this.pos);
+                isChange=true;
                 this.updateData();
                 return;
             }
@@ -132,6 +137,7 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
         if(Thermal==0){
             state=MachineState.CLOSE;
             BlockStove.transformMachineState(state,this.world,this.pos);
+            isChange=true;
             this.updateData();
             return;
         }
@@ -150,11 +156,6 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
         this.updateData();
     }
 
-    void updateData(){
-        this.syncToTrackingClients();
-        this.markDirty();
-    }
-
     public TileEntityBlockStove(){
         Thermal=0;
         state=MachineState.CLOSE;
@@ -162,24 +163,9 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
     }
 
     @Override
-    public MachineState getWorkingState() {
-        return state;
-    }
-
-    @Override
-    public void setWorkingState(MachineState state) {
-        this.state=state;
-    }
-
-    private static EnumFacing getFacing(IBlockAccess worldIn,BlockPos pos){
-        return worldIn.getBlockState(pos).getValue(BlockStove.FACING);
-    }
-
-    @Override
     public void readFromNBT(NBTTagCompound compound) {
         super.readFromNBT(compound);
         this.Thermal=compound.getInteger("Thermal");
-        this.state=MachineState.valueOf(compound.getString("MachineState")==""?"CLOSE":compound.getString("MachineState"));
         this.overloadTick=compound.getInteger("OverloadTick");
         this.handler.deserializeNBT(compound.getCompoundTag("Fuels"));
     }
@@ -187,9 +173,9 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
     @Override
     public NBTTagCompound writeToNBT(NBTTagCompound compound) {
         compound.setInteger("Thermal",Thermal);
-        compound.setString("MachineState",state.toString());
         compound.setInteger("OverloadTick",overloadTick);
         compound.setTag("Fuels",handler.serializeNBT());
+        compound.setIntArray("FuelProgress",FuelProgress);
         return super.writeToNBT(compound);
     }
 
@@ -210,33 +196,5 @@ public class TileEntityBlockStove extends TileEntity implements IThermal, ITicka
         else {
             return super.getCapability(capability, facing);
         }
-    }
-
-    @Override
-    public NBTTagCompound getUpdateTag() {
-        return this.writeToNBT(new NBTTagCompound());
-    }
-
-    @Nullable
-    @Override
-    public SPacketUpdateTileEntity getUpdatePacket() {
-        return new SPacketUpdateTileEntity(this.getPos(),1,this.getUpdateTag());
-    }
-
-    public void syncToTrackingClients() {
-        if (!this.world.isRemote) {
-            SPacketUpdateTileEntity packet = this.getUpdatePacket();
-            PlayerChunkMapEntry trackingEntry = ((WorldServer)this.world).getPlayerChunkMap().getEntry(this.pos.getX() >> 4, this.pos.getZ() >> 4);
-            if (trackingEntry != null) {
-                for (EntityPlayerMP player : trackingEntry.getWatchingPlayers()) {
-                    player.connection.sendPacket(packet);
-                }
-            }
-        }
-    }
-
-    @Override
-    public void onDataPacket(NetworkManager manager, SPacketUpdateTileEntity packet) {
-        this.readFromNBT(packet.getNbtCompound());
     }
 }

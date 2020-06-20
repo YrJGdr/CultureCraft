@@ -1,7 +1,5 @@
 package cx.rain.mc.forgemod.chineseculture.api.annotation;
 
-import net.minecraft.creativetab.CreativeTabs;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

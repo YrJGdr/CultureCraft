@@ -1,6 +1,7 @@
 package cx.rain.mc.forgemod.chineseculture.api.game.capability;
 
 import cx.rain.mc.forgemod.chineseculture.api.game.interfaces.IMEnergy;
+import cx.rain.mc.forgemod.chineseculture.api.game.interfaces.IThermal;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.util.EnumFacing;
@@ -9,7 +10,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import java.util.concurrent.Callable;
 
 /**
- * MEnergy output Capability
+ * The Capability for {@link IMEnergy}
  * @author Infinity_rain
  */
 public class CapabilityMEnergy {
