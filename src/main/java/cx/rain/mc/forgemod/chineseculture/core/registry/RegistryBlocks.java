@@ -29,7 +29,7 @@ public class RegistryBlocks {
                 }
                 Block block = clazz.getConstructor().newInstance()
                         .setRegistryName(ChineseCulture.MODID, name)
-                        .setUnlocalizedName(translateKey);
+                        .setUnlocalizedName(ChineseCulture.MODID+"."+translateKey);
                 BLOCKS.put(name, block);
             } catch (NoSuchMethodException
                     | IllegalAccessException

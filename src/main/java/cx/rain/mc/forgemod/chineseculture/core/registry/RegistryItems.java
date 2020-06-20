@@ -28,7 +28,7 @@ public class RegistryItems {
                 }
                 Item item = clazz.getConstructor().newInstance()
                         .setRegistryName(ChineseCulture.MODID, name)
-                        .setUnlocalizedName(translateKey);
+                        .setUnlocalizedName(ChineseCulture.MODID+"."+translateKey);
                 ITEMS.put(name, item);
             } catch (NoSuchMethodException
                     | IllegalAccessException

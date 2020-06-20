@@ -1,12 +1,9 @@
 package cx.rain.mc.forgemod.chineseculture.block;
 
-import cx.rain.mc.forgemod.chineseculture.ChineseCulture;
 import cx.rain.mc.forgemod.chineseculture.api.annotation.ModBlock;
 import cx.rain.mc.forgemod.chineseculture.api.game.interfaces.IMachine;
 import cx.rain.mc.forgemod.chineseculture.api.game.block.BlockMachineBase;
-import cx.rain.mc.forgemod.chineseculture.api.game.interfaces.IThermal;
 import cx.rain.mc.forgemod.chineseculture.tileentity.TileEntityBlockStove;
-import cx.rain.mc.forgemod.chineseculture.init.RegistryCapability;
 import cx.rain.mc.forgemod.chineseculture.tab.Tabs;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
@@ -14,9 +11,7 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
