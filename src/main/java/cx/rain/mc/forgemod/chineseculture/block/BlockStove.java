@@ -60,8 +60,11 @@ public class BlockStove extends BlockMachineBase {
             TileEntity te = worldIn.getTileEntity(pos);
             if(te.hasCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY,state.getValue(FACING))) {
                 for (int i = 0; i < 2; i++) {
+                    String s = playerIn.getHeldItem(hand).toString();
                     playerIn.setHeldItem(hand,te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, state.getValue(FACING)).insertItem(i,playerIn.getHeldItem(hand), false));
-                    break;
+                    if(!s.equals(playerIn.getHeldItem(hand).toString())){
+                        break;
+                    }
                 }
             }
             else{

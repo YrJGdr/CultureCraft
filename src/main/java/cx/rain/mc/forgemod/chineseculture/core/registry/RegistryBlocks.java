@@ -44,16 +44,12 @@ public class RegistryBlocks {
     @SubscribeEvent
     public static void onRegisterBlock(RegistryEvent.Register<Block> event) {
         ChineseCulture.INSTANCE.getLogger().info("Registering Blocks.");
-        BLOCKS.forEach((name, block) -> {
-            event.getRegistry().register(block);
-        });
+        BLOCKS.forEach((name, block) -> event.getRegistry().register(block));
     }
 
     @SubscribeEvent
     public static void registerItem(RegistryEvent.Register<Item> event) {
         ChineseCulture.INSTANCE.getLogger().info("Registering ItemBlocks.");
-        BLOCKS.forEach((name, block) -> {
-            event.getRegistry().register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
-        });
+        BLOCKS.forEach((name, block) -> event.getRegistry().register(new ItemBlock(block).setRegistryName(block.getRegistryName())));
     }
 }
