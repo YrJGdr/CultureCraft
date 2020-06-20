@@ -9,15 +9,11 @@
   食物:
     煮鸡蛋: false
     茶叶蛋: false
-    豆腐: true
-    豆浆: false
     豆腐乳: false
   饮料:
     茶: false
-    白酒: true
     高粱酒: false
   作物:
-    南瓜: true
     稻米: false
     桃子: false
     茶叶: false
@@ -26,4 +22,7 @@
   工艺:
     书法: false
     音乐: false
-  其他:     
+    烹饪: false
+  方块:
+    炉灶: making
+  其他:
