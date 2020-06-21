@@ -107,9 +107,12 @@ public class TileEntityBlockStove extends TileEntityMachineBase implements ITher
 
     @Override
     public void update() {
-        if(this.world.isRemote&&state==MachineState.DAMAGED){
+        ChineseCulture.INSTANCE.getLogger().info("In:"+handler.getStackInSlot(0).getDisplayName()+"in slot 0");
+        ChineseCulture.INSTANCE.getLogger().info("In:"+handler.getStackInSlot(1).getDisplayName()+"in slot 1");
+        if(this.world.isRemote||state==MachineState.DAMAGED){
             return;
         }
+        this.updateData();
         if(Thermal>400){
             if(Thermal>600||overloadTick>20*15){
                 Thermal=0;
@@ -146,7 +149,6 @@ public class TileEntityBlockStove extends TileEntityMachineBase implements ITher
                 state=MachineState.IDLE;
             }
         }
-
         BlockStove.transformMachineState(state,this.world,this.pos);
 
         if(state==MachineState.OVERLOAD){
@@ -188,9 +190,11 @@ public class TileEntityBlockStove extends TileEntityMachineBase implements ITher
     @Override
     public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing) {
         if (capability == RegistryCapability.ThermalCapabilityOutput&&facing==EnumFacing.UP) {
+            isChange=true;
             return RegistryCapability.ThermalCapabilityOutput.cast(this.ThermalCap);
         }
         else  if(capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY&&facing==getFacing(world,pos)){
+            isChange=true;
             return CapabilityItemHandler.ITEM_HANDLER_CAPABILITY.cast(handler);
         }
         else {
