@@ -16,10 +16,12 @@ tile.chineseculture.stove.name=Stove
 tile.chineseculture.tiles.name=Tiles
 tile.chineseculture.mahoganyLog.name=Mahogany Log
 tile.chineseculture.mahoganyPlank.name=Mahogany Plank
-tile.chineseculture.mahoganyLeaf.name=Mahogany Leaf
+tile.chineseculture.mahoganyLeaves.name=Mahogany Leaves
+tile.chineseculture.mahoganySapling.name=Mahogany Sapling
 tile.chineseculture.walnutTreeLog.name=Walnut Tree Log
 tile.chineseculture.walnutTreePlank.name=Walnut Tree Plank
-tile.chineseculture.walnutTreeLeaf.name=Walnut Tree Leaf
+tile.chineseculture.walnutTreeLeaves.name=Walnut Tree Leaves
+tile.chineseculture.walnutTreeSapling.name=Walnut Tree Sapling
 
 # ItemGroups
 itemGroup.chineseculture.tabs.block=Chinese Culture | Building Blocks

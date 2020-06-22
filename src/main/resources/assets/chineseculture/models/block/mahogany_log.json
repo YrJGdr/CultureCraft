@@ -1,11 +1,7 @@
 {
-  "parent": "block/cube",
+  "parent": "block/cube_column",
   "textures": {
-    "up": "chineseculture:blocks/mahogany_log_top",
-    "down": "chineseculture:blocks/mahogany_log_top",
-    "west": "chineseculture:blocks/mahogany_log_side",
-    "north": "chineseculture:blocks/mahogany_log_side",
-    "east": "chineseculture:blocks/mahogany_log_side",
-    "south": "chineseculture:blocks/mahogany_log_side"
+    "end": "chineseculture:blocks/mahogany_log_top",
+    "side": "chineseculture:blocks/mahogany_log"
   }
 }

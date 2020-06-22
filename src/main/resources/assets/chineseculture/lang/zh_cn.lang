@@ -17,10 +17,12 @@ tile.chineseculture.stove.name=炉灶
 tile.chineseculture.tiles.name=瓦片
 tile.chineseculture.mahoganyLog.name=桃花心木原木
 tile.chineseculture.mahoganyPlank.name=桃花心木木板
-tile.chineseculture.mahoganyLeaf.name=桃花心木树叶
+tile.chineseculture.mahoganyLeaves.name=桃花心木树叶
+tile.chineseculture.mahoganySapling.name=桃花心木树苗
 tile.chineseculture.walnutTreeLog.name=核桃木原木
 tile.chineseculture.walnutTreePlank.name=核桃木木板
-tile.chineseculture.walnutTreeLeaf.name=核桃树树叶
+tile.chineseculture.walnutTreeLeaves.name=核桃树树叶
+tile.chineseculture.walnutTreeSapling.name=核桃树树苗
 
 # ItemGroups
 itemGroup.chineseculture.tabs.block=华夏文明 | 建筑方块
@@ -28,4 +30,4 @@ itemGroup.chineseculture.tabs.food=华夏文明 | 食物
 itemGroup.chineseculture.tabs.machine=华夏文明 | 机器
 
 # Messages
-chineseculture.event.player.join.welcome=欢迎！
+chineseculture.event.player.join.welcome=欢迎！tile.chineseculture.mahoganySapling.name=Mahogany Sapling

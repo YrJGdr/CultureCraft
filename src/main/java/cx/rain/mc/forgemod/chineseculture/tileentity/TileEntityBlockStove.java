@@ -107,8 +107,6 @@ public class TileEntityBlockStove extends TileEntityMachineBase implements ITher
 
     @Override
     public void update() {
-        ChineseCulture.INSTANCE.getLogger().info("In:"+handler.getStackInSlot(0).getDisplayName()+"in slot 0");
-        ChineseCulture.INSTANCE.getLogger().info("In:"+handler.getStackInSlot(1).getDisplayName()+"in slot 1");
         if(this.world.isRemote||state==MachineState.DAMAGED){
             return;
         }
