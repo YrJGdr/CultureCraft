@@ -5,7 +5,7 @@ import cx.rain.mc.forgemod.chineseculture.tab.Tabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
-@ModBlock(name = "black_brick", translate = "black_brick")
+@ModBlock(name = "black_brick", translate = "blackBrick")
 public class BlockBlackBrick extends Block {
     public BlockBlackBrick() {
         super(Material.GROUND);

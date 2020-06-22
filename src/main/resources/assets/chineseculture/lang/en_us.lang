@@ -3,22 +3,28 @@ item.chineseculture.dumpling.name=Dumpling
 item.chineseculture.spirits.name=Spirits
 item.chineseculture.tofu.name=Tofu
 item.chineseculture.charredFood.name=Charred Food
+item.chineseculture.soybeanMilk.name=Soybean Milk
 
 # Blocks
 tile.chineseculture.blackBrick.name=Black Brick
 tile.chineseculture.colouredGlaze.name=Coloured Glaze
 tile.chineseculture.grayTiles.name=Gray Tiles
-tile.chineseculture.mahogany.name=Mahogany
 tile.chineseculture.marble.name=Marble
 tile.chineseculture.pottery.name=Pottery
 tile.chineseculture.porcelain.name=Porcelain
 tile.chineseculture.stove.name=Stove
 tile.chineseculture.tiles.name=Tiles
+tile.chineseculture.mahoganyLog.name=Mahogany Log
+tile.chineseculture.mahoganyPlank.name=Mahogany Plank
+tile.chineseculture.mahoganyLeaf.name=Mahogany Leaf
+tile.chineseculture.walnutTreeLog.name=Walnut Tree Log
+tile.chineseculture.walnutTreePlank.name=Walnut Tree Plank
+tile.chineseculture.walnutTreeLeaf.name=Walnut Tree Leaf
 
 # ItemGroups
-itemGroup.chineseculture.tab.block=Chinese Culture | Building Blocks
-itemGroup.chineseculture.tab.food=Chinese Culture | Foods
-itemGroup.chineseculture.tab.machine=Chinese Culture | Machine
+itemGroup.chineseculture.tabs.block=Chinese Culture | Building Blocks
+itemGroup.chineseculture.tabs.food=Chinese Culture | Foods
+itemGroup.chineseculture.tabs.machine=Chinese Culture | Machine
 
 # Messages
-event.player.join.welcome=Welcome!
+chineseculture.event.player.join.welcome=Welcome!

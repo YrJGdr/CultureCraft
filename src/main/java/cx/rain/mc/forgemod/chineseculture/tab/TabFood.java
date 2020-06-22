@@ -12,6 +12,6 @@ public class TabFood extends CreativeTabs {
 
     @Override
     public ItemStack getTabIconItem() {
-        return new ItemStack(RegistryItems.ITEMS.get("dumplings"));
+        return new ItemStack(RegistryItems.ITEMS.get("dumpling"));
     }
 }

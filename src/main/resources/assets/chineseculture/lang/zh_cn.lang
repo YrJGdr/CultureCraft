@@ -3,22 +3,29 @@ item.chineseculture.dumpling.name=饺子
 item.chineseculture.spirits.name=白酒
 item.chineseculture.tofu.name=豆腐
 item.chineseculture.charredFood.name=烧焦的食物
+item.chineseculture.soybeanMilk.name=豆浆
 
 # Blocks
+
 tile.chineseculture.blackBrick.name=黑砖块
 tile.chineseculture.colouredGlaze.name=釉
 tile.chineseculture.grayTiles.name=灰瓦片
-tile.chineseculture.mahogany.name=桃花心木
 tile.chineseculture.marble.name=大理石
 tile.chineseculture.pottery.name=陶器
 tile.chineseculture.porcelain.name=瓷器
 tile.chineseculture.stove.name=炉灶
 tile.chineseculture.tiles.name=瓦片
+tile.chineseculture.mahoganyLog.name=桃花心木原木
+tile.chineseculture.mahoganyPlank.name=桃花心木木板
+tile.chineseculture.mahoganyLeaf.name=桃花心木树叶
+tile.chineseculture.walnutTreeLog.name=核桃木原木
+tile.chineseculture.walnutTreePlank.name=核桃木木板
+tile.chineseculture.walnutTreeLeaf.name=核桃树树叶
 
 # ItemGroups
-itemGroup.chineseculture.tab.block=华夏文明 | 建筑方块
-itemGroup.chineseculture.tab.food=华夏文明 | 食物
-itemGroup.chineseculture.tab.machine=华夏文明 | 机器
+itemGroup.chineseculture.tabs.block=华夏文明 | 建筑方块
+itemGroup.chineseculture.tabs.food=华夏文明 | 食物
+itemGroup.chineseculture.tabs.machine=华夏文明 | 机器
 
 # Messages
-event.player.join.welcome=欢迎！
+chineseculture.event.player.join.welcome=欢迎！

@@ -9,6 +9,6 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 public class EventPlayerLoggedIn {
     @SubscribeEvent
     public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
-        event.player.sendMessage(new TextComponentTranslation("event.player.join.welcome"));
+        event.player.sendMessage(new TextComponentTranslation("chineseculture.event.player.join.welcome"));
     }
 }
